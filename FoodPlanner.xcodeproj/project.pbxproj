@@ -60,11 +60,19 @@
 				35FF745724828378001FB26C /* SceneDelegate.swift */,
 				35FF745924828378001FB26C /* ViewController.swift */,
 				35FF745B24828378001FB26C /* Main.storyboard */,
+				35FF7469248283AE001FB26C /* SupportingFiles */,
+			);
+			path = FoodPlanner;
+			sourceTree = "<group>";
+		};
+		35FF7469248283AE001FB26C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				35FF745E2482837D001FB26C /* Assets.xcassets */,
 				35FF74602482837D001FB26C /* LaunchScreen.storyboard */,
 				35FF74632482837D001FB26C /* Info.plist */,
 			);
-			path = FoodPlanner;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4733CLVUX5;
 				INFOPLIST_FILE = FoodPlanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4733CLVUX5;
 				INFOPLIST_FILE = FoodPlanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

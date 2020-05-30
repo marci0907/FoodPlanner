@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  FoodPlanner
-//
-//  Created by Magyar Marci on 2020. 05. 30..
-//  Copyright © 2020. Magyar Marci. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -14,7 +6,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 

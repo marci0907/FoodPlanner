@@ -1,11 +1,3 @@
-//
-//  SceneDelegate.swift
-//  FoodPlanner
-//
-//  Created by Magyar Marci on 2020. 05. 30..
-//  Copyright © 2020. Magyar Marci. All rights reserved.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
