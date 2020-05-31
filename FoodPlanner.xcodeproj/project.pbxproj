@@ -13,6 +13,11 @@
 		35633DD62483EA790053F5BA /* FastFoodViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */; };
 		35633DD82483EA820053F5BA /* MealPlannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35633DD72483EA820053F5BA /* MealPlannerViewController.storyboard */; };
 		35633DDA2483EA8A0053F5BA /* RecipesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35633DD92483EA8A0053F5BA /* RecipesViewController.storyboard */; };
+		35633DDF2483F39C0053F5BA /* MealPlannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35633DDE2483F39C0053F5BA /* MealPlannerService.swift */; };
+		35633DE12483F4DF0053F5BA /* MealPlannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35633DE02483F4DF0053F5BA /* MealPlannerModel.swift */; };
+		35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FC2483F95100A9BA12 /* EndPoint.swift */; };
+		35CB24002483FDD400A9BA12 /* MealPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */; };
+		35CB24022484017E00A9BA12 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB24012484017E00A9BA12 /* ApiKey.swift */; };
 		35FF745624828378001FB26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF745524828378001FB26C /* AppDelegate.swift */; };
 		35FF745824828378001FB26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF745724828378001FB26C /* SceneDelegate.swift */; };
 		35FF745F2482837D001FB26C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35FF745E2482837D001FB26C /* Assets.xcassets */; };
@@ -28,6 +33,11 @@
 		35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FastFoodViewController.storyboard; sourceTree = "<group>"; };
 		35633DD72483EA820053F5BA /* MealPlannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealPlannerViewController.storyboard; sourceTree = "<group>"; };
 		35633DD92483EA8A0053F5BA /* RecipesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipesViewController.storyboard; sourceTree = "<group>"; };
+		35633DDE2483F39C0053F5BA /* MealPlannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerService.swift; sourceTree = "<group>"; };
+		35633DE02483F4DF0053F5BA /* MealPlannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerModel.swift; sourceTree = "<group>"; };
+		35CB23FC2483F95100A9BA12 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerViewModel.swift; sourceTree = "<group>"; };
+		35CB24012484017E00A9BA12 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		35FF745224828378001FB26C /* FoodPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35FF745524828378001FB26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35FF745724828378001FB26C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,10 +100,45 @@
 		35633DCE2483EA330053F5BA /* MealPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				35CB23FE2483FDC400A9BA12 /* ViewModel */,
 				35633DD12483EA5D0053F5BA /* MealPlannerViewController.swift */,
 				35633DD72483EA820053F5BA /* MealPlannerViewController.storyboard */,
 			);
 			path = MealPlanner;
+			sourceTree = "<group>";
+		};
+		35633DDB2483F3530053F5BA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				35633DDC2483F37A0053F5BA /* MealPlanner */,
+				35CB23FC2483F95100A9BA12 /* EndPoint.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		35633DDC2483F37A0053F5BA /* MealPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				35633DDD2483F3850053F5BA /* Model */,
+				35633DDE2483F39C0053F5BA /* MealPlannerService.swift */,
+			);
+			path = MealPlanner;
+			sourceTree = "<group>";
+		};
+		35633DDD2483F3850053F5BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35633DE02483F4DF0053F5BA /* MealPlannerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35CB23FE2483FDC400A9BA12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		35FF744924828378001FB26C = {
@@ -119,6 +164,7 @@
 			children = (
 				35633DCA2483E8F70053F5BA /* AppDelegate */,
 				35633DCB2483EA080053F5BA /* UserInterface */,
+				35633DDB2483F3530053F5BA /* Services */,
 				35FF7469248283AE001FB26C /* SupportingFiles */,
 			);
 			path = FoodPlanner;
@@ -130,6 +176,7 @@
 				35FF745E2482837D001FB26C /* Assets.xcassets */,
 				35FF74602482837D001FB26C /* LaunchScreen.storyboard */,
 				35FF74632482837D001FB26C /* Info.plist */,
+				35CB24012484017E00A9BA12 /* ApiKey.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -268,9 +315,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35CB24022484017E00A9BA12 /* ApiKey.swift in Sources */,
 				35633DD22483EA5D0053F5BA /* MealPlannerViewController.swift in Sources */,
+				35CB24002483FDD400A9BA12 /* MealPlannerViewModel.swift in Sources */,
+				35633DDF2483F39C0053F5BA /* MealPlannerService.swift in Sources */,
+				35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */,
 				35FF745624828378001FB26C /* AppDelegate.swift in Sources */,
 				35633DD02483EA530053F5BA /* FastFoodViewController.swift in Sources */,
+				35633DE12483F4DF0053F5BA /* MealPlannerModel.swift in Sources */,
 				35633DD42483EA640053F5BA /* RecipesViewController.swift in Sources */,
 				35FF745824828378001FB26C /* SceneDelegate.swift in Sources */,
 			);

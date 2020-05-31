@@ -14,9 +14,28 @@
                     <view key="view" contentMode="scaleToFill" id="xIg-in-DF9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-yM-pql" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="15" y="279.5" width="384" height="582.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EBN-gK-zAM" id="Nbg-uU-GeS"/>
+                                    <outlet property="delegate" destination="EBN-gK-zAM" id="rUP-Xl-gQe"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5NQ-yM-pql" firstAttribute="height" secondItem="xIg-in-DF9" secondAttribute="height" multiplier="0.65" id="Jg0-UV-En0"/>
+                            <constraint firstItem="5NQ-yM-pql" firstAttribute="leading" secondItem="OAQ-W2-DbV" secondAttribute="leading" constant="15" id="V6D-qc-DJq"/>
+                            <constraint firstItem="OAQ-W2-DbV" firstAttribute="trailing" secondItem="5NQ-yM-pql" secondAttribute="trailing" constant="15" id="lDE-F2-90F"/>
+                            <constraint firstItem="OAQ-W2-DbV" firstAttribute="bottom" secondItem="5NQ-yM-pql" secondAttribute="bottom" id="ogO-aY-yeW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OAQ-W2-DbV"/>
                     </view>
+                    <connections>
+                        <outlet property="pagerView" destination="5NQ-yM-pql" id="zAn-aE-ycZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3u-HF-8SD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
