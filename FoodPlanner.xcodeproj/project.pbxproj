@@ -3,27 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35633DD02483EA530053F5BA /* FastFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35633DCF2483EA520053F5BA /* FastFoodViewController.swift */; };
+		35633DD22483EA5D0053F5BA /* MealPlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35633DD12483EA5D0053F5BA /* MealPlannerViewController.swift */; };
+		35633DD42483EA640053F5BA /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35633DD32483EA640053F5BA /* RecipesViewController.swift */; };
+		35633DD62483EA790053F5BA /* FastFoodViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */; };
+		35633DD82483EA820053F5BA /* MealPlannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35633DD72483EA820053F5BA /* MealPlannerViewController.storyboard */; };
+		35633DDA2483EA8A0053F5BA /* RecipesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35633DD92483EA8A0053F5BA /* RecipesViewController.storyboard */; };
 		35FF745624828378001FB26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF745524828378001FB26C /* AppDelegate.swift */; };
 		35FF745824828378001FB26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF745724828378001FB26C /* SceneDelegate.swift */; };
-		35FF745A24828378001FB26C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF745924828378001FB26C /* ViewController.swift */; };
-		35FF745D24828378001FB26C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35FF745B24828378001FB26C /* Main.storyboard */; };
 		35FF745F2482837D001FB26C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35FF745E2482837D001FB26C /* Assets.xcassets */; };
 		35FF74622482837D001FB26C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35FF74602482837D001FB26C /* LaunchScreen.storyboard */; };
+		408950F4308AC98B3757B0E4 /* Pods_FoodPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4721A06BBED64C222A28DD12 /* Pods_FoodPlanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		235B073F5B3B0DBC3C3D8768 /* Pods-FoodPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPlanner.debug.xcconfig"; path = "Target Support Files/Pods-FoodPlanner/Pods-FoodPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		35633DCF2483EA520053F5BA /* FastFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodViewController.swift; sourceTree = "<group>"; };
+		35633DD12483EA5D0053F5BA /* MealPlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerViewController.swift; sourceTree = "<group>"; };
+		35633DD32483EA640053F5BA /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FastFoodViewController.storyboard; sourceTree = "<group>"; };
+		35633DD72483EA820053F5BA /* MealPlannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealPlannerViewController.storyboard; sourceTree = "<group>"; };
+		35633DD92483EA8A0053F5BA /* RecipesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipesViewController.storyboard; sourceTree = "<group>"; };
 		35FF745224828378001FB26C /* FoodPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35FF745524828378001FB26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35FF745724828378001FB26C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		35FF745924828378001FB26C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		35FF745C24828378001FB26C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35FF745E2482837D001FB26C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35FF74612482837D001FB26C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35FF74632482837D001FB26C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4721A06BBED64C222A28DD12 /* Pods_FoodPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E663ED841B3098FC198880A /* Pods-FoodPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPlanner.release.xcconfig"; path = "Target Support Files/Pods-FoodPlanner/Pods-FoodPlanner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,66 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408950F4308AC98B3757B0E4 /* Pods_FoodPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35633DCA2483E8F70053F5BA /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				35FF745524828378001FB26C /* AppDelegate.swift */,
+				35FF745724828378001FB26C /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		35633DCB2483EA080053F5BA /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				35633DCD2483EA1F0053F5BA /* FastFood */,
+				35633DCE2483EA330053F5BA /* MealPlanner */,
+				35633DCC2483EA120053F5BA /* Recipes */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		35633DCC2483EA120053F5BA /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				35633DD32483EA640053F5BA /* RecipesViewController.swift */,
+				35633DD92483EA8A0053F5BA /* RecipesViewController.storyboard */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		35633DCD2483EA1F0053F5BA /* FastFood */ = {
+			isa = PBXGroup;
+			children = (
+				35633DCF2483EA520053F5BA /* FastFoodViewController.swift */,
+				35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */,
+			);
+			path = FastFood;
+			sourceTree = "<group>";
+		};
+		35633DCE2483EA330053F5BA /* MealPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				35633DD12483EA5D0053F5BA /* MealPlannerViewController.swift */,
+				35633DD72483EA820053F5BA /* MealPlannerViewController.storyboard */,
+			);
+			path = MealPlanner;
+			sourceTree = "<group>";
+		};
 		35FF744924828378001FB26C = {
 			isa = PBXGroup;
 			children = (
 				35FF745424828378001FB26C /* FoodPlanner */,
 				35FF745324828378001FB26C /* Products */,
+				C4E711C288FF756F1631D4EB /* Pods */,
+				A84B6A40541F92E0F84C6196 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +117,8 @@
 		35FF745424828378001FB26C /* FoodPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				35FF745524828378001FB26C /* AppDelegate.swift */,
-				35FF745724828378001FB26C /* SceneDelegate.swift */,
-				35FF745924828378001FB26C /* ViewController.swift */,
-				35FF745B24828378001FB26C /* Main.storyboard */,
+				35633DCA2483E8F70053F5BA /* AppDelegate */,
+				35633DCB2483EA080053F5BA /* UserInterface */,
 				35FF7469248283AE001FB26C /* SupportingFiles */,
 			);
 			path = FoodPlanner;
@@ -75,6 +134,23 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		A84B6A40541F92E0F84C6196 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4721A06BBED64C222A28DD12 /* Pods_FoodPlanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4E711C288FF756F1631D4EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				235B073F5B3B0DBC3C3D8768 /* Pods-FoodPlanner.debug.xcconfig */,
+				8E663ED841B3098FC198880A /* Pods-FoodPlanner.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35FF74662482837D001FB26C /* Build configuration list for PBXNativeTarget "FoodPlanner" */;
 			buildPhases = (
+				B4D553172768320CA2A447C7 /* [CP] Check Pods Manifest.lock */,
 				35FF744E24828378001FB26C /* Sources */,
 				35FF744F24828378001FB26C /* Frameworks */,
 				35FF745024828378001FB26C /* Resources */,
+				129030DD6CA8F2EC5BEF8351 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,21 +211,67 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35633DD62483EA790053F5BA /* FastFoodViewController.storyboard in Resources */,
+				35633DD82483EA820053F5BA /* MealPlannerViewController.storyboard in Resources */,
+				35633DDA2483EA8A0053F5BA /* RecipesViewController.storyboard in Resources */,
 				35FF74622482837D001FB26C /* LaunchScreen.storyboard in Resources */,
 				35FF745F2482837D001FB26C /* Assets.xcassets in Resources */,
-				35FF745D24828378001FB26C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		129030DD6CA8F2EC5BEF8351 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodPlanner/Pods-FoodPlanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodPlanner/Pods-FoodPlanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodPlanner/Pods-FoodPlanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4D553172768320CA2A447C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoodPlanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		35FF744E24828378001FB26C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35FF745A24828378001FB26C /* ViewController.swift in Sources */,
+				35633DD22483EA5D0053F5BA /* MealPlannerViewController.swift in Sources */,
 				35FF745624828378001FB26C /* AppDelegate.swift in Sources */,
+				35633DD02483EA530053F5BA /* FastFoodViewController.swift in Sources */,
+				35633DD42483EA640053F5BA /* RecipesViewController.swift in Sources */,
 				35FF745824828378001FB26C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,14 +279,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		35FF745B24828378001FB26C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35FF745C24828378001FB26C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		35FF74602482837D001FB26C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,11 +406,12 @@
 		};
 		35FF74672482837D001FB26C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 235B073F5B3B0DBC3C3D8768 /* Pods-FoodPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4733CLVUX5;
-				INFOPLIST_FILE = FoodPlanner/Info.plist;
+				INFOPLIST_FILE = FoodPlanner/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,11 +426,12 @@
 		};
 		35FF74682482837D001FB26C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E663ED841B3098FC198880A /* Pods-FoodPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4733CLVUX5;
-				INFOPLIST_FILE = FoodPlanner/Info.plist;
+				INFOPLIST_FILE = FoodPlanner/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

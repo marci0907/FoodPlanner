@@ -3,13 +3,19 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var tabBarController: UITabBarController!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        
+        tabBarController = UITabBarController()
+
+        setupTabBarController()
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -38,6 +44,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    func setupTabBarController() {
+        
+        let fastFoodStoryboard = UIStoryboard(name: "FastFoodViewController", bundle: .main)
+        let fastFoodVC = fastFoodStoryboard.instantiateInitialViewController()!
+        let fastFoodTabItem = UITabBarItem(title: "Fast Foods", image: nil, tag: 1)
+        fastFoodVC.tabBarItem = fastFoodTabItem
+            
+        let mealPlannerStoryboard = UIStoryboard(name: "MealPlannerViewController", bundle: .main)
+        let mealPlannerVC = mealPlannerStoryboard.instantiateInitialViewController()!
+        let mealPlannerTabItem = UITabBarItem(title: "Meal Planner", image: nil, tag: 2)
+        mealPlannerVC.tabBarItem = mealPlannerTabItem
+
+        let recipesStoryboard = UIStoryboard(name: "RecipesViewController", bundle: .main)
+        let recipesVC = recipesStoryboard.instantiateInitialViewController()!
+        let recipesTabItem = UITabBarItem(title: "Recipes", image: nil, tag: 0)
+        recipesVC.tabBarItem = recipesTabItem
+
+        tabBarController.viewControllers = [recipesVC, fastFoodVC, mealPlannerVC]
+        
     }
 
 
