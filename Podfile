@@ -7,5 +7,7 @@ target 'FoodPlanner' do
 
   # Pods for FoodPlanner
   pod 'FSPagerView'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end
