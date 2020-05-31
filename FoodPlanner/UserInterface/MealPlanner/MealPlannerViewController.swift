@@ -11,7 +11,7 @@ class MealPlannerViewController: UIViewController {
         didSet {
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
             self.pagerView.transformer = FSPagerViewTransformer(type: .overlap)
-            self.pagerView.itemSize = CGSize(width: 250, height: 350)
+            self.pagerView.itemSize = CGSize(width: 312, height: 231)
         }
     }
     
@@ -38,8 +38,10 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.backgroundColor = UIColor.black
-        cell.textLabel?.text = viewModel.mealPlannerModel?.meals[index].title
+        guard let model = viewModel.mealPlannerModel else { return cell }
+        
+        cell.imageView?.image = UIImage(data: model.meals[index].image!)
+        cell.textLabel?.text = model.meals[index].title
         return cell
     }
 

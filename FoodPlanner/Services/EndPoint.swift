@@ -10,4 +10,8 @@ enum EndPoint {
             return base + "/mealplanner/generate" + apikey + "&timeFrame=day"
         }
     }
+    
+    func url(for meal: Meal) -> String {
+        return "https://spoonacular.com/recipeImages/\(meal.id)-312x231.\(meal.imageType)"
+    }
 }

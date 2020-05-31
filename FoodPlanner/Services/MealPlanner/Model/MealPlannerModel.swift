@@ -1,3 +1,5 @@
+import Foundation
+
 struct MealPlannerModel: Codable {
     var meals: [Meal]
     var nutrients: Nutrients
@@ -10,6 +12,7 @@ struct Meal: Codable {
     var readyInMinutes: Int
     var servings: Int
     var sourceUrl: String
+    var image: Data?
 }
 
 struct Nutrients: Codable {
