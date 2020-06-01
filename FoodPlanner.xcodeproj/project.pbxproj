@@ -18,7 +18,6 @@
 		358C6FCD2484ECEC0029935A /* MealPlannerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C6FCC2484ECEC0029935A /* MealPlannerDetailViewController.swift */; };
 		358C6FCF2484ECF60029935A /* MealPlannerDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358C6FCE2484ECF60029935A /* MealPlannerDetailViewController.storyboard */; };
 		358C6FD12484EFCA0029935A /* MealPlannerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C6FD02484EFCA0029935A /* MealPlannerDetailsViewModel.swift */; };
-		358C6FD72484FEF50029935A /* ZoomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C6FD62484FEF50029935A /* ZoomNavigation.swift */; };
 		35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FC2483F95100A9BA12 /* EndPoint.swift */; };
 		35CB24002483FDD400A9BA12 /* MealPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */; };
 		35CB24022484017E00A9BA12 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB24012484017E00A9BA12 /* ApiKey.swift */; };
@@ -42,7 +41,6 @@
 		358C6FCC2484ECEC0029935A /* MealPlannerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerDetailViewController.swift; sourceTree = "<group>"; };
 		358C6FCE2484ECF60029935A /* MealPlannerDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealPlannerDetailViewController.storyboard; sourceTree = "<group>"; };
 		358C6FD02484EFCA0029935A /* MealPlannerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerDetailsViewModel.swift; sourceTree = "<group>"; };
-		358C6FD62484FEF50029935A /* ZoomNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomNavigation.swift; sourceTree = "<group>"; };
 		35CB23FC2483F95100A9BA12 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerViewModel.swift; sourceTree = "<group>"; };
 		35CB24012484017E00A9BA12 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
@@ -167,14 +165,6 @@
 			path = MealDetail;
 			sourceTree = "<group>";
 		};
-		358C6FD52484FEB00029935A /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				358C6FD62484FEF50029935A /* ZoomNavigation.swift */,
-			);
-			path = Animations;
-			sourceTree = "<group>";
-		};
 		35CB23FE2483FDC400A9BA12 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +195,6 @@
 		35FF745424828378001FB26C /* FoodPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				358C6FD52484FEB00029935A /* Animations */,
 				35633DCA2483E8F70053F5BA /* AppDelegate */,
 				35633DDB2483F3530053F5BA /* Services */,
 				35633DCB2483EA080053F5BA /* UserInterface */,
@@ -363,7 +352,6 @@
 				35CB24022484017E00A9BA12 /* ApiKey.swift in Sources */,
 				35633DD22483EA5D0053F5BA /* MealPlannerViewController.swift in Sources */,
 				35CB24002483FDD400A9BA12 /* MealPlannerViewModel.swift in Sources */,
-				358C6FD72484FEF50029935A /* ZoomNavigation.swift in Sources */,
 				35633DDF2483F39C0053F5BA /* MealPlannerService.swift in Sources */,
 				35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */,
 				35FF745624828378001FB26C /* AppDelegate.swift in Sources */,

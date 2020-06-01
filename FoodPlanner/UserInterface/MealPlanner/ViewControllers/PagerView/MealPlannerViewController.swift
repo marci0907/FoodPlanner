@@ -12,7 +12,8 @@ class MealPlannerViewController: UIViewController {
     var viewModel: MealPlannerViewModel!
     var bag = DisposeBag()
     
-    let zoomNav = ZoomNavigation()
+    var chosenView: UIImageView!
+    var chosenViewAnimation: CGAffineTransform!
 
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
@@ -22,12 +23,28 @@ class MealPlannerViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !isMovingToParent {
+            UIView.animate(
+                withDuration: 0.5,
+                animations: {
+                    self.chosenView.transform = CGAffineTransform.identity
+                    self.pagerView.alpha = 1
+                },
+                completion: { _ in
+                    self.chosenView.removeFromSuperview()
+                    self.pagerView.cellForItem(at: self.pagerView.currentIndex)?.isHidden = false
+                    self.pagerView.deselectItem(at: self.pagerView.currentIndex, animated: false)
+                }
+            )
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MealPlannerViewModel()
-        
-        navigationController?.delegate = self
-        
+                
         viewModel.reloadSubject
             .observeOn(MainScheduler())
             .subscribe(onNext: { _ in
@@ -49,47 +66,42 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         guard let model = viewModel.mealPlannerModel else { return cell }
         
         cell.imageView?.image = UIImage(data: model.meals[index].image!)
-        cell.textLabel?.text = model.meals[index].title
+//        cell.textLabel?.text = model.meals[index].title
         return cell
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        guard index == pagerView.currentIndex else {
+            return
+        }
         let selectedStoryboard = UIStoryboard(name: Constants.detailsStoryboardId, bundle: .main)
         let selectedViewController = selectedStoryboard.instantiateInitialViewController()! as MealPlannerDetailViewController
         selectedViewController.chosenMeal = viewModel.mealPlannerModel!.meals[index]
         
-        let chosenView = pagerView.cellForItem(at: index)!
+        pagerView.cellForItem(at: index)?.isHidden = true
 
+        chosenView = UIImageView(frame: pagerView.cellForItem(at: index)!.frame)
+        chosenView.frame.origin.y += 40
+        chosenView.frame.origin.x -= CGFloat(index) * 190
+        chosenView.image = UIImage(data: viewModel.mealPlannerModel!.meals[index].image!)
+        view.addSubview(chosenView)
+        
         let superViewChosenViewWidthRatio = view.frame.size.width / chosenView.frame.size.width
-        let chosenViewDistanceFromTop = -chosenView.frame.origin.y + 40
-        let transform = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.1)
+        let chosenViewDistanceFromTop = -chosenView.frame.origin.y + 82
+        chosenViewAnimation = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.1)
         
         UIView.animate(
             withDuration: 0.5,
             animations:
             {
-                chosenView.transform = transform
+                self.chosenView.transform = self.chosenViewAnimation
+                self.pagerView.alpha = 0
             },
             completion:
             { _ in
                 self.navigationController?.pushViewController(selectedViewController, animated: false)
-                chosenView.transform = CGAffineTransform.identity
-            })
-        
-    }
-
-}
-
-// MARK: - Custom Navigation Animation
-
-extension MealPlannerViewController: UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
-    func navigationController(
-        _ navigationController: UINavigationController,
-        animationControllerFor operation: UINavigationController.Operation,
-        from fromVC: UIViewController,
-        to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        zoomNav.isPop = operation == .pop
-        return zoomNav
+            }
+        )
     }
 }
+

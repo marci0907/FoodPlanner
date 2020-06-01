@@ -20,6 +20,6 @@ class MealPlannerDetailViewController: UIViewController {
     }
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: false)
     }
 }
