@@ -16,6 +16,11 @@ class MealPlannerViewController: UIViewController {
     var chosenViewAnimation: CGAffineTransform!
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nutrientsStackView: UIStackView!
+    @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var carbohydrateLabel: UILabel!
+    @IBOutlet weak var proteinLabel: UILabel!
+    @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: Constants.fsCellReuseId)
@@ -28,13 +33,14 @@ class MealPlannerViewController: UIViewController {
         super.viewWillAppear(animated)
         if !isMovingToParent {
             UIView.animate(
-                withDuration: 0.5,
+                withDuration: 0.3,
                 animations: {
-                    self.chosenView.transform = CGAffineTransform.identity
+                    self.chosenView?.transform = CGAffineTransform.identity
                     self.pagerView.alpha = 1
+                    self.nutrientsStackView.alpha = 1
                 },
                 completion: { _ in
-                    self.chosenView.removeFromSuperview()
+                    self.chosenView?.removeFromSuperview()
                     self.pagerView.cellForItem(at: self.pagerView.currentIndex)?.isHidden = false
                     self.pagerView.deselectItem(at: self.pagerView.currentIndex, animated: false)
                 }
@@ -50,14 +56,20 @@ class MealPlannerViewController: UIViewController {
             .observeOn(MainScheduler())
             .subscribe(onNext: { _ in
                 self.pagerView.reloadData()
-                self.setLabelTitle()
+                self.nutrientsStackView.isHidden = false
+                self.setLabels()
             })
             .disposed(by: bag)
     }
     
-    func setLabelTitle() {
+    func setLabels() {
         let index = pagerView.currentIndex
         titleLabel.text = viewModel.mealPlannerModel!.meals[index].title
+        
+        calorieLabel.text = "\(viewModel.mealPlannerModel!.nutrients.calories) kcal"
+        carbohydrateLabel.text = "\(viewModel.mealPlannerModel!.nutrients.carbohydrates) g"
+        proteinLabel.text = "\(viewModel.mealPlannerModel!.nutrients.protein) g"
+        fatLabel.text = "\(viewModel.mealPlannerModel!.nutrients.fat) g"
     }
 }
 
@@ -73,7 +85,6 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         guard let model = viewModel.mealPlannerModel else { return cell }
         
         cell.imageView?.image = UIImage(data: model.meals[index].image!)
-//        cell.textLabel?.text = model.meals[index].title
         return cell
     }
     
@@ -98,11 +109,12 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         chosenViewAnimation = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.1)
         
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.3,
             animations:
             {
                 self.chosenView.transform = self.chosenViewAnimation
                 self.pagerView.alpha = 0
+                self.nutrientsStackView.alpha = 0
             },
             completion:
             { _ in
@@ -112,7 +124,7 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
     }
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
-        setLabelTitle()
+        setLabels()
     }
 }
 

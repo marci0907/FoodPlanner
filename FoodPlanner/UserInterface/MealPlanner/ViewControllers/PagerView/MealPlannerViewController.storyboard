@@ -15,41 +15,178 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-Oe-16S">
+                                <rect key="frame" x="30" y="104" width="354" height="0.0"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-yM-pql" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="627"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="582.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="EBN-gK-zAM" id="Nbg-uU-GeS"/>
                                     <outlet property="delegate" destination="EBN-gK-zAM" id="rUP-Xl-gQe"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-Oe-16S">
-                                <rect key="frame" x="30" y="104" width="354" height="0.0"/>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vyu-Ki-e57">
+                                <rect key="frame" x="30" y="546.5" width="354" height="206"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-wv-pKw">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3Z-Rg-mju">
+                                                <rect key="frame" x="15" y="8.5" width="143.5" height="32.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="23"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpd-GO-MYn">
+                                                <rect key="frame" x="339" y="25" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="w3Z-Rg-mju" firstAttribute="leading" secondItem="bYY-wv-pKw" secondAttribute="leading" constant="15" id="2q0-xY-9m3"/>
+                                            <constraint firstItem="w3Z-Rg-mju" firstAttribute="centerY" secondItem="bYY-wv-pKw" secondAttribute="centerY" id="2yr-Z1-z8g"/>
+                                            <constraint firstAttribute="height" constant="50" id="aIl-dK-Ppv"/>
+                                            <constraint firstAttribute="trailing" secondItem="bpd-GO-MYn" secondAttribute="trailing" constant="15" id="hBS-OB-tbU"/>
+                                            <constraint firstItem="bpd-GO-MYn" firstAttribute="centerY" secondItem="bYY-wv-pKw" secondAttribute="centerY" id="qeq-DK-SCI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ova-bR-2kX">
+                                        <rect key="frame" x="0.0" y="52" width="354" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbohydrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg8-dv-wyn">
+                                                <rect key="frame" x="15" y="8.5" width="144" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="23"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVF-D9-Guj">
+                                                <rect key="frame" x="339" y="25" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="20"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Eg8-dv-wyn" firstAttribute="leading" secondItem="Ova-bR-2kX" secondAttribute="leading" constant="15" id="JK8-Rv-xoh"/>
+                                            <constraint firstItem="Eg8-dv-wyn" firstAttribute="centerY" secondItem="Ova-bR-2kX" secondAttribute="centerY" id="LcP-jb-Rzl"/>
+                                            <constraint firstItem="bVF-D9-Guj" firstAttribute="centerY" secondItem="Ova-bR-2kX" secondAttribute="centerY" id="Or2-RX-d0e"/>
+                                            <constraint firstAttribute="trailing" secondItem="bVF-D9-Guj" secondAttribute="trailing" constant="15" id="cYU-SL-9nh"/>
+                                            <constraint firstAttribute="height" constant="50" id="nzp-p3-Rj7"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDw-td-0wy">
+                                        <rect key="frame" x="0.0" y="104" width="354" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnS-Vl-Sjs">
+                                                <rect key="frame" x="15" y="8.5" width="78.5" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="23"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUM-OA-l7r">
+                                                <rect key="frame" x="339" y="25" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="20"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="wUM-OA-l7r" firstAttribute="centerY" secondItem="hDw-td-0wy" secondAttribute="centerY" id="9OC-tr-L2n"/>
+                                            <constraint firstItem="KnS-Vl-Sjs" firstAttribute="centerY" secondItem="hDw-td-0wy" secondAttribute="centerY" id="bEh-Fs-4dT"/>
+                                            <constraint firstItem="KnS-Vl-Sjs" firstAttribute="leading" secondItem="hDw-td-0wy" secondAttribute="leading" constant="15" id="n9p-kq-84P"/>
+                                            <constraint firstAttribute="trailing" secondItem="wUM-OA-l7r" secondAttribute="trailing" constant="15" id="tD9-JU-KFL"/>
+                                            <constraint firstAttribute="height" constant="50" id="xZ1-N2-B42"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3N-h5-3wV">
+                                        <rect key="frame" x="0.0" y="156" width="354" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ea-Jz-nMn">
+                                                <rect key="frame" x="15" y="8.5" width="33" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="23"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0D-K3-cX9">
+                                                <rect key="frame" x="339" y="25" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="20"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="u0D-K3-cX9" secondAttribute="trailing" constant="15" id="ZBF-oG-dre"/>
+                                            <constraint firstItem="u0D-K3-cX9" firstAttribute="centerY" secondItem="x3N-h5-3wV" secondAttribute="centerY" id="aIv-V4-KNb"/>
+                                            <constraint firstItem="8ea-Jz-nMn" firstAttribute="centerY" secondItem="x3N-h5-3wV" secondAttribute="centerY" id="piA-Wu-UhO"/>
+                                            <constraint firstItem="8ea-Jz-nMn" firstAttribute="leading" secondItem="x3N-h5-3wV" secondAttribute="leading" constant="15" id="sOS-fd-XGy"/>
+                                            <constraint firstAttribute="height" constant="50" id="swK-HT-9I6"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="q6f-eo-rm1"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5NQ-yM-pql" firstAttribute="height" secondItem="xIg-in-DF9" secondAttribute="height" multiplier="0.7" id="Jg0-UV-En0"/>
+                            <constraint firstItem="OAQ-W2-DbV" firstAttribute="trailing" secondItem="vyu-Ki-e57" secondAttribute="trailing" constant="30" id="6f2-am-1As"/>
+                            <constraint firstItem="vyu-Ki-e57" firstAttribute="top" secondItem="5NQ-yM-pql" secondAttribute="bottom" constant="-80" id="Ag6-GW-WAK"/>
+                            <constraint firstItem="5NQ-yM-pql" firstAttribute="height" secondItem="xIg-in-DF9" secondAttribute="height" multiplier="0.65" id="Jg0-UV-En0"/>
                             <constraint firstItem="5NQ-yM-pql" firstAttribute="top" secondItem="OAQ-W2-DbV" secondAttribute="top" id="Nwk-X2-dey"/>
                             <constraint firstItem="5NQ-yM-pql" firstAttribute="leading" secondItem="OAQ-W2-DbV" secondAttribute="leading" id="V6D-qc-DJq"/>
                             <constraint firstAttribute="trailing" secondItem="BIY-Oe-16S" secondAttribute="trailing" constant="30" id="VQq-rU-fVx"/>
                             <constraint firstItem="BIY-Oe-16S" firstAttribute="leading" secondItem="xIg-in-DF9" secondAttribute="leading" constant="30" id="XMA-xM-nIb"/>
                             <constraint firstItem="OAQ-W2-DbV" firstAttribute="trailing" secondItem="5NQ-yM-pql" secondAttribute="trailing" id="lDE-F2-90F"/>
+                            <constraint firstItem="vyu-Ki-e57" firstAttribute="leading" secondItem="OAQ-W2-DbV" secondAttribute="leading" constant="30" id="tIC-v0-QKi"/>
                             <constraint firstItem="BIY-Oe-16S" firstAttribute="top" secondItem="OAQ-W2-DbV" secondAttribute="top" constant="60" id="x80-1U-Wjf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OAQ-W2-DbV"/>
                     </view>
                     <connections>
+                        <outlet property="calorieLabel" destination="bpd-GO-MYn" id="BmD-J1-QfQ"/>
+                        <outlet property="carbohydrateLabel" destination="bVF-D9-Guj" id="HhN-mO-WcA"/>
+                        <outlet property="fatLabel" destination="u0D-K3-cX9" id="VjD-Tm-1Mr"/>
+                        <outlet property="nutrientsStackView" destination="vyu-Ki-e57" id="7Sv-E2-EU4"/>
                         <outlet property="pagerView" destination="5NQ-yM-pql" id="zAn-aE-ycZ"/>
+                        <outlet property="proteinLabel" destination="wUM-OA-l7r" id="1cy-cB-2sq"/>
                         <outlet property="titleLabel" destination="BIY-Oe-16S" id="EFs-DB-jFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3u-HF-8SD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
