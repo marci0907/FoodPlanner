@@ -12,6 +12,6 @@ enum EndPoint {
     }
     
     func url(for meal: Meal) -> String {
-        return "https://spoonacular.com/recipeImages/\(meal.id)-312x231.\(meal.imageType)"
+        return "https://spoonacular.com/recipeImages/\(meal.id)-636x393.\(meal.imageType)"
     }
 }

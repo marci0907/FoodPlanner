@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rji-IG-hzi">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Meal Planner Detail View Controller-->
+        <scene sceneID="bBW-rU-TTR">
+            <objects>
+                <viewController id="Rji-IG-hzi" customClass="MealPlannerDetailViewController" customModule="FoodPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SZM-md-KeZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zkM-fZ-qdW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="259"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zkM-fZ-qdW" secondAttribute="height" multiplier="1.6" id="a5G-DL-jNb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="zkM-fZ-qdW" firstAttribute="leading" secondItem="PWW-Hd-cZO" secondAttribute="leading" id="2kh-ds-8vH"/>
+                            <constraint firstItem="PWW-Hd-cZO" firstAttribute="trailing" secondItem="zkM-fZ-qdW" secondAttribute="trailing" id="5RJ-hF-Ifx"/>
+                            <constraint firstItem="zkM-fZ-qdW" firstAttribute="top" secondItem="PWW-Hd-cZO" secondAttribute="top" id="VDQ-tx-zH6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PWW-Hd-cZO"/>
+                    </view>
+                    <connections>
+                        <outlet property="mealImage" destination="zkM-fZ-qdW" id="R0D-iW-IGL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vih-u1-o8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="139"/>
+        </scene>
+    </scenes>
+</document>
