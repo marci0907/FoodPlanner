@@ -23,18 +23,28 @@
                                     <outlet property="delegate" destination="EBN-gK-zAM" id="rUP-Xl-gQe"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIY-Oe-16S">
+                                <rect key="frame" x="30" y="104" width="354" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5NQ-yM-pql" firstAttribute="height" secondItem="xIg-in-DF9" secondAttribute="height" multiplier="0.7" id="Jg0-UV-En0"/>
                             <constraint firstItem="5NQ-yM-pql" firstAttribute="top" secondItem="OAQ-W2-DbV" secondAttribute="top" id="Nwk-X2-dey"/>
                             <constraint firstItem="5NQ-yM-pql" firstAttribute="leading" secondItem="OAQ-W2-DbV" secondAttribute="leading" id="V6D-qc-DJq"/>
+                            <constraint firstAttribute="trailing" secondItem="BIY-Oe-16S" secondAttribute="trailing" constant="30" id="VQq-rU-fVx"/>
+                            <constraint firstItem="BIY-Oe-16S" firstAttribute="leading" secondItem="xIg-in-DF9" secondAttribute="leading" constant="30" id="XMA-xM-nIb"/>
                             <constraint firstItem="OAQ-W2-DbV" firstAttribute="trailing" secondItem="5NQ-yM-pql" secondAttribute="trailing" id="lDE-F2-90F"/>
+                            <constraint firstItem="BIY-Oe-16S" firstAttribute="top" secondItem="OAQ-W2-DbV" secondAttribute="top" constant="60" id="x80-1U-Wjf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OAQ-W2-DbV"/>
                     </view>
                     <connections>
                         <outlet property="pagerView" destination="5NQ-yM-pql" id="zAn-aE-ycZ"/>
+                        <outlet property="titleLabel" destination="BIY-Oe-16S" id="EFs-DB-jFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3u-HF-8SD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -15,6 +15,7 @@ class MealPlannerViewController: UIViewController {
     var chosenView: UIImageView!
     var chosenViewAnimation: CGAffineTransform!
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: Constants.fsCellReuseId)
@@ -49,8 +50,14 @@ class MealPlannerViewController: UIViewController {
             .observeOn(MainScheduler())
             .subscribe(onNext: { _ in
                 self.pagerView.reloadData()
+                self.setLabelTitle()
             })
             .disposed(by: bag)
+    }
+    
+    func setLabelTitle() {
+        let index = pagerView.currentIndex
+        titleLabel.text = viewModel.mealPlannerModel!.meals[index].title
     }
 }
 
@@ -102,6 +109,10 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
                 self.navigationController?.pushViewController(selectedViewController, animated: false)
             }
         )
+    }
+    
+    func pagerViewDidScroll(_ pagerView: FSPagerView) {
+        setLabelTitle()
     }
 }
 
