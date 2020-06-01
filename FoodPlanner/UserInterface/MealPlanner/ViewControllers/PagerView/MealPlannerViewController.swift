@@ -11,6 +11,8 @@ class MealPlannerViewController: UIViewController {
     
     var viewModel: MealPlannerViewModel!
     var bag = DisposeBag()
+    
+    let zoomNav = ZoomNavigation()
 
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
@@ -23,6 +25,8 @@ class MealPlannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MealPlannerViewModel()
+        
+        navigationController?.delegate = self
         
         viewModel.reloadSubject
             .observeOn(MainScheduler())
@@ -56,4 +60,18 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         navigationController?.pushViewController(selectedViewController, animated: true)
     }
 
+}
+
+// MARK: - Custom Navigation Animation
+
+extension MealPlannerViewController: UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
+    func navigationController(
+        _ navigationController: UINavigationController,
+        animationControllerFor operation: UINavigationController.Operation,
+        from fromVC: UIViewController,
+        to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        zoomNav.isPop = operation == .pop
+        return zoomNav
+    }
 }
