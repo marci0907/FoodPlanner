@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-yM-pql" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="279.5" width="414" height="582.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="627"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="EBN-gK-zAM" id="Nbg-uU-GeS"/>
@@ -26,10 +26,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5NQ-yM-pql" firstAttribute="height" secondItem="xIg-in-DF9" secondAttribute="height" multiplier="0.65" id="Jg0-UV-En0"/>
+                            <constraint firstItem="5NQ-yM-pql" firstAttribute="height" secondItem="xIg-in-DF9" secondAttribute="height" multiplier="0.7" id="Jg0-UV-En0"/>
+                            <constraint firstItem="5NQ-yM-pql" firstAttribute="top" secondItem="OAQ-W2-DbV" secondAttribute="top" id="Nwk-X2-dey"/>
                             <constraint firstItem="5NQ-yM-pql" firstAttribute="leading" secondItem="OAQ-W2-DbV" secondAttribute="leading" id="V6D-qc-DJq"/>
                             <constraint firstItem="OAQ-W2-DbV" firstAttribute="trailing" secondItem="5NQ-yM-pql" secondAttribute="trailing" id="lDE-F2-90F"/>
-                            <constraint firstItem="OAQ-W2-DbV" firstAttribute="bottom" secondItem="5NQ-yM-pql" secondAttribute="bottom" id="ogO-aY-yeW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OAQ-W2-DbV"/>
                     </view>

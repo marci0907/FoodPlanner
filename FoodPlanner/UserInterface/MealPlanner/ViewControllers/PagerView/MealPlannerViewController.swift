@@ -57,7 +57,25 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         let selectedStoryboard = UIStoryboard(name: Constants.detailsStoryboardId, bundle: .main)
         let selectedViewController = selectedStoryboard.instantiateInitialViewController()! as MealPlannerDetailViewController
         selectedViewController.chosenMeal = viewModel.mealPlannerModel!.meals[index]
-        navigationController?.pushViewController(selectedViewController, animated: true)
+        
+        let chosenView = pagerView.cellForItem(at: index)!
+
+        let superViewChosenViewWidthRatio = view.frame.size.width / chosenView.frame.size.width
+        let chosenViewDistanceFromTop = -chosenView.frame.origin.y + 40
+        let transform = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.1)
+        
+        UIView.animate(
+            withDuration: 0.5,
+            animations:
+            {
+                chosenView.transform = transform
+            },
+            completion:
+            { _ in
+                self.navigationController?.pushViewController(selectedViewController, animated: false)
+                chosenView.transform = CGAffineTransform.identity
+            })
+        
     }
 
 }
