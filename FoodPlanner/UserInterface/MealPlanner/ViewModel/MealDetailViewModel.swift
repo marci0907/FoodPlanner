@@ -4,14 +4,17 @@ class MealDetailViewModel {
 
     typealias service = MealDetailService
 
-    var mealImage: Data!
+    var meal: Meal!
     var mealDetailModel: MealDetailModel?
     var reloadSubject = PublishSubject<Bool>()
 
     let bag = DisposeBag()
 
     init(withMeal meal: Meal) {
-        mealImage = meal.image!
+        self.meal = meal
+    }
+    
+    func getDetails() {
         service().getMealDetails(for: meal)
             .subscribe(onSuccess: { mealDetailModel in
                 self.mealDetailModel = mealDetailModel

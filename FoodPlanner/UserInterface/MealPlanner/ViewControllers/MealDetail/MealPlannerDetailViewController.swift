@@ -1,16 +1,44 @@
+import RxSwift
 import UIKit
 
 class MealPlannerDetailViewController: UIViewController {
     
     @IBOutlet weak var mealImage: UIImageView!
+    @IBOutlet weak var contentView: UIView!
     
     var viewModel: MealDetailViewModel!
+    var activityIndicator: UIActivityIndicatorView!
+    var bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mealImage.image = UIImage(data: viewModel.mealImage)
+        mealImage.image = UIImage(data: viewModel.meal.image!)
         
         setupSwipeGestureRecogniser()
+        setupActivityIndicator()
+        
+        viewModel.reloadSubject
+            .observeOn(MainScheduler())
+            .subscribe(onNext: { _ in
+                self.activityIndicator.stopAnimating()
+            })
+            .disposed(by: bag)
+        
+        viewModel.getDetails()
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView()
+        contentView.addSubview(activityIndicator)
+        
+        activityIndicator.style = .large
+        activityIndicator.hidesWhenStopped = true
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
+        activityIndicator.startAnimating()
     }
     
     func setupSwipeGestureRecogniser() {

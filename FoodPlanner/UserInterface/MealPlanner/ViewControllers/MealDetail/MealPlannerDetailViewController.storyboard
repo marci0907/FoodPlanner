@@ -21,17 +21,26 @@
                                     <constraint firstAttribute="width" secondItem="zkM-fZ-qdW" secondAttribute="height" multiplier="1.35065" id="a5G-DL-jNb"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-aQ-A1e">
+                                <rect key="frame" x="0.0" y="350.5" width="414" height="511.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="zkM-fZ-qdW" firstAttribute="leading" secondItem="PWW-Hd-cZO" secondAttribute="leading" id="2kh-ds-8vH"/>
                             <constraint firstItem="PWW-Hd-cZO" firstAttribute="trailing" secondItem="zkM-fZ-qdW" secondAttribute="trailing" id="5RJ-hF-Ifx"/>
+                            <constraint firstItem="mLd-aQ-A1e" firstAttribute="leading" secondItem="PWW-Hd-cZO" secondAttribute="leading" id="7TN-jG-IVi"/>
+                            <constraint firstItem="PWW-Hd-cZO" firstAttribute="trailing" secondItem="mLd-aQ-A1e" secondAttribute="trailing" id="NWS-Z1-yaf"/>
+                            <constraint firstItem="mLd-aQ-A1e" firstAttribute="top" secondItem="zkM-fZ-qdW" secondAttribute="bottom" id="Pub-cd-BrL"/>
                             <constraint firstItem="zkM-fZ-qdW" firstAttribute="top" secondItem="PWW-Hd-cZO" secondAttribute="top" id="VDQ-tx-zH6"/>
+                            <constraint firstItem="PWW-Hd-cZO" firstAttribute="bottom" secondItem="mLd-aQ-A1e" secondAttribute="bottom" id="vLc-BH-Pn2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PWW-Hd-cZO"/>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="mLd-aQ-A1e" id="DZc-EC-wBb"/>
                         <outlet property="mealImage" destination="zkM-fZ-qdW" id="R0D-iW-IGL"/>
                     </connections>
                 </viewController>
