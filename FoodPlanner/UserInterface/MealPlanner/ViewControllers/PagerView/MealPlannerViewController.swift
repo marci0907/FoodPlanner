@@ -92,9 +92,11 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         guard index == pagerView.currentIndex else {
             return
         }
+        let selectedMeal = viewModel.mealPlannerModel!.meals[index]
+        
         let selectedStoryboard = UIStoryboard(name: Constants.detailsStoryboardId, bundle: .main)
         let selectedViewController = selectedStoryboard.instantiateInitialViewController()! as MealPlannerDetailViewController
-        selectedViewController.chosenMeal = viewModel.mealPlannerModel!.meals[index]
+        selectedViewController.viewModel = MealDetailViewModel(withMeal: selectedMeal)
         
         pagerView.cellForItem(at: index)?.isHidden = true
 

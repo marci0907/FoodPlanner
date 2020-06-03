@@ -2,14 +2,13 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-struct MealPlannerService {
+final class MealPlannerService {
     func generateMealPlan() -> Single<MealPlannerModel> {
-        let urlRequest = URLRequest(url: URL(string: EndPoint.mealPlan.url)!)
-        return URLSession.shared.rx.response(request: urlRequest)
+        return URLSession.shared.rx.response(request: EndPoint.mealPlan.request)
             .map { try JSONDecoder().decode(MealPlannerModel.self, from: $1) }
             .map { mealPlannerModel -> [Observable<(Meal, Nutrients, Data)>] in
                 return mealPlannerModel.meals.map { meal -> Observable<(Meal, Nutrients, Data)> in
-                    return URLSession.shared.rx.data(request: URLRequest(url: URL(string: EndPoint.mealPlan.url(for: meal))!))
+                    return URLSession.shared.rx.data(request: EndPoint.mealImage(for: meal).request)
                         .map { (meal, mealPlannerModel.nutrients, $0) }
                 }
             }

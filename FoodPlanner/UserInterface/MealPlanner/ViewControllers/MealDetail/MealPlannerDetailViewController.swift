@@ -4,11 +4,11 @@ class MealPlannerDetailViewController: UIViewController {
     
     @IBOutlet weak var mealImage: UIImageView!
     
-    var chosenMeal: Meal!
+    var viewModel: MealDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mealImage.image = UIImage(data: chosenMeal.image!)
+        mealImage.image = UIImage(data: viewModel.mealImage)
         
         setupSwipeGestureRecogniser()
     }
