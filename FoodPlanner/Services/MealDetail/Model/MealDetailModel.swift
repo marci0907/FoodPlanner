@@ -3,7 +3,7 @@ struct MealDetailModel: Codable {
     let preparationMinutes: Int?
     let cookingMinutes: Int?
     let healthScore: Int
-    let extendedIngredients: [ExtendedIngredient]
+    let extendedIngredients: [ExtendedIngredient]?
     let id: Int
     let title: String
     let readyInMinutes, servings: Int
