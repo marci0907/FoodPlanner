@@ -1,14 +1,14 @@
 struct MealDetailModel: Codable {
-    let glutenFree, dairyFree: Bool
+    let glutenFree, dairyFree: Bool?
     let preparationMinutes: Int?
     let cookingMinutes: Int?
-    let healthScore: Int
+    let healthScore: Int?
     let extendedIngredients: [ExtendedIngredient]?
     let id: Int
     let title: String
-    let readyInMinutes, servings: Int
-    let nutrition: Nutrition
-    let analyzedInstructions: [AnalyzedInstruction]
+    let readyInMinutes, servings: Int?
+    let nutrition: Nutrition?
+    let analyzedInstructions: [AnalyzedInstruction]?
 }
 
 struct AnalyzedInstruction: Codable {

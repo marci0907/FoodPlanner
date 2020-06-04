@@ -44,16 +44,16 @@ class MealPlannerDetailViewController: UIViewController {
         scrollContent.isHidden = false
         titleLabel.text = meal.title
         
-        let calories = viewModel.mealDetailModel!.nutrition.nutrients.filter({ $0.title == "Calories" }).first!
+        let calories = viewModel.mealDetailModel!.nutrition!.nutrients.filter({ $0.title == "Calories" }).first!
         nutrients[0].text = "\(Int(calories.amount))"
         
-        let carbs = viewModel.mealDetailModel!.nutrition.nutrients.filter({ $0.title == "Carbohydrates" }).first!
+        let carbs = viewModel.mealDetailModel!.nutrition!.nutrients.filter({ $0.title == "Carbohydrates" }).first!
         nutrients[1].text = "\(Int(carbs.amount)) " + carbs.unit
         
-        let protein = viewModel.mealDetailModel!.nutrition.nutrients.filter({ $0.title == "Protein" }).first!
+        let protein = viewModel.mealDetailModel!.nutrition!.nutrients.filter({ $0.title == "Protein" }).first!
         nutrients[2].text = "\(Int(protein.amount)) " + protein.unit
 
-        let fat = viewModel.mealDetailModel!.nutrition.nutrients.filter({ $0.title == "Fat" }).first!
+        let fat = viewModel.mealDetailModel!.nutrition!.nutrients.filter({ $0.title == "Fat" }).first!
         nutrients[3].text = "\(Int(fat.amount)) " + fat.unit
     }
     
