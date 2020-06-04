@@ -6,7 +6,6 @@ class MealDetailViewModel {
 
     var meal: Meal!
     var mealDetailModel: MealDetailModel?
-    var reloadSubject = PublishSubject<Bool>()
 
     let bag = DisposeBag()
 
@@ -14,12 +13,7 @@ class MealDetailViewModel {
         self.meal = meal
     }
     
-    func getDetails() {
-        service().getMealDetails(for: meal)
-            .subscribe(onSuccess: { mealDetailModel in
-                self.mealDetailModel = mealDetailModel
-                self.reloadSubject.onNext(true)
-            })
-            .disposed(by: bag)
+    func getDetails() -> Single<MealDetailModel> {
+        return service().getMealDetails(for: meal)
     }
 }

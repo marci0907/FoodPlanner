@@ -5,6 +5,7 @@ class MealPlannerDetailViewController: UIViewController {
     
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var viewModel: MealDetailViewModel!
     var activityIndicator: UIActivityIndicatorView!
@@ -16,15 +17,19 @@ class MealPlannerDetailViewController: UIViewController {
         
         setupSwipeGestureRecogniser()
         setupActivityIndicator()
-        
-        viewModel.reloadSubject
+                
+        viewModel.getDetails().asObservable()
             .observeOn(MainScheduler())
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { mealDetailModel in
+                self.viewModel.mealDetailModel = mealDetailModel
+                self.updateUI(with: mealDetailModel)
                 self.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
-        
-        viewModel.getDetails()
+    }
+    
+    func updateUI(with meal: MealDetailModel) {
+        titleLabel.text = meal.title
     }
     
     func setupActivityIndicator() {
