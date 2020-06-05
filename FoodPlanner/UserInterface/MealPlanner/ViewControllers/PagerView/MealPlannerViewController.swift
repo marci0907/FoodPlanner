@@ -1,19 +1,20 @@
 import FSPagerView
+import NVActivityIndicatorView
 import RxSwift
 import UIKit
 
 class MealPlannerViewController: UIViewController {
     
     private enum Constants {
-        static let fsCellReuseId = "FSCell"
         static let detailsStoryboardId = "MealPlannerDetailViewController"
+        static let fsCellReuseId = "FSCell"
     }
     
-    var viewModel: MealPlannerViewModel!
+    var activityIndicator: NVActivityIndicatorView!
     var bag = DisposeBag()
-    
     var chosenView: UIImageView!
     var chosenViewAnimation: CGAffineTransform!
+    var viewModel: MealPlannerViewModel!
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nutrientsStackView: UIStackView!
@@ -29,6 +30,23 @@ class MealPlannerViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel = MealPlannerViewModel()
+        
+        setupActivityIndicator()
+        
+        viewModel.reloadSubject
+            .observeOn(MainScheduler())
+            .subscribe(onNext: { _ in
+                self.pagerView.reloadData()
+                self.nutrientsStackView.isHidden = false
+                self.setLabels()
+                self.activityIndicator.stopAnimating()
+            })
+            .disposed(by: bag)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !isMovingToParent {
@@ -48,18 +66,18 @@ class MealPlannerViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel = MealPlannerViewModel()
-                
-        viewModel.reloadSubject
-            .observeOn(MainScheduler())
-            .subscribe(onNext: { _ in
-                self.pagerView.reloadData()
-                self.nutrientsStackView.isHidden = false
-                self.setLabels()
-            })
-            .disposed(by: bag)
+    func setupActivityIndicator() {
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50),
+                                                    type: .circleStrokeSpin,
+                                                    color: .black,
+                                                    padding: 2.0)
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        activityIndicator.startAnimating()
     }
     
     func setLabels() {

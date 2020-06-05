@@ -1,20 +1,21 @@
+import NVActivityIndicatorView
 import RxSwift
 import UIKit
 
 class MealPlannerDetailViewController: UIViewController {
     
-    @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var frameView: UIView!
+    @IBOutlet weak var mealImage: UIImageView!
+    @IBOutlet var nutrients: [UILabel]!
     @IBOutlet weak var scrollContent: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var frameView: UIView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet var nutrients: [UILabel]!
     
-    var viewModel: MealDetailViewModel!
-    var activityIndicator: UIActivityIndicatorView!
+    var activityIndicator: NVActivityIndicatorView!
     var bag = DisposeBag()
-    
+    var viewModel: MealDetailViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mealImage.image = UIImage(data: viewModel.meal.image!)
@@ -58,12 +59,11 @@ class MealPlannerDetailViewController: UIViewController {
     }
     
     func setupActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView()
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50),
+                                                    type: .circleStrokeSpin,
+                                                    color: .black,
+                                                    padding: 2.0)
         view.addSubview(activityIndicator)
-        
-        activityIndicator.style = .large
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = UIColor.black
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
