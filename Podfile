@@ -9,5 +9,6 @@ target 'FoodPlanner' do
   pod 'FSPagerView'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'NVActivityIndicatorView'
 
 end

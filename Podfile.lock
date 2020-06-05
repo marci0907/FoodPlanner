@@ -1,5 +1,8 @@
 PODS:
   - FSPagerView (0.8.3)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -9,22 +12,25 @@ PODS:
 
 DEPENDENCIES:
   - FSPagerView
+  - NVActivityIndicatorView
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   trunk:
     - FSPagerView
+    - NVActivityIndicatorView
     - RxCocoa
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: beb226c792aa5c2fdb7924c42c35090752985b91
+PODFILE CHECKSUM: fa98d494c7b855dff17cdcbbe94ab413ac8f154d
 
 COCOAPODS: 1.8.4
