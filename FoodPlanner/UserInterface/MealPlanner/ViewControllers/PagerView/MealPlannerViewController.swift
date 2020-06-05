@@ -36,9 +36,10 @@ class MealPlannerViewController: UIViewController {
         
         setupActivityIndicator()
         
-        viewModel.reloadSubject
+        viewModel.getMealPlan().asObservable()
             .observeOn(MainScheduler())
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { mealPlannerModel in
+                self.viewModel.mealPlannerModel = mealPlannerModel
                 self.pagerView.reloadData()
                 self.nutrientsStackView.isHidden = false
                 self.setLabels()
@@ -89,11 +90,24 @@ class MealPlannerViewController: UIViewController {
         proteinLabel.text = "\(viewModel.mealPlannerModel!.nutrients.protein) g"
         fatLabel.text = "\(viewModel.mealPlannerModel!.nutrients.fat) g"
     }
+    
+    fileprivate func setChosenView(fromItemAt index: Int) {
+        chosenView = UIImageView(frame: pagerView.cellForItem(at: index)!.frame)
+        chosenView.frame.origin.y += 40
+        chosenView.frame.origin.x -= CGFloat(index) * 190
+        chosenView.image = UIImage(data: viewModel.mealPlannerModel!.meals[index].image!)
+        view.addSubview(chosenView)
+        
+        let superViewChosenViewWidthRatio = view.frame.size.width / chosenView.frame.size.width
+        let chosenViewDistanceFromTop = -chosenView.frame.origin.y + 82
+        chosenViewAnimation = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.1)
+    }
+
 }
 
-// MARK: - FSPagerView DataSource + Delegate
+// MARK: - FSPagerView DataSource
 
-extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate {
+extension MealPlannerViewController: FSPagerViewDataSource {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return viewModel.mealPlannerModel?.meals.count ?? 0
     }
@@ -105,7 +119,11 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         cell.imageView?.image = UIImage(data: model.meals[index].image!)
         return cell
     }
-    
+}
+
+// MARK: - FSPagerView Delegate
+
+extension MealPlannerViewController: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         guard index == pagerView.currentIndex else {
             return
@@ -118,15 +136,7 @@ extension MealPlannerViewController: FSPagerViewDataSource, FSPagerViewDelegate 
         
         pagerView.cellForItem(at: index)?.isHidden = true
 
-        chosenView = UIImageView(frame: pagerView.cellForItem(at: index)!.frame)
-        chosenView.frame.origin.y += 40
-        chosenView.frame.origin.x -= CGFloat(index) * 190
-        chosenView.image = UIImage(data: viewModel.mealPlannerModel!.meals[index].image!)
-        view.addSubview(chosenView)
-        
-        let superViewChosenViewWidthRatio = view.frame.size.width / chosenView.frame.size.width
-        let chosenViewDistanceFromTop = -chosenView.frame.origin.y + 82
-        chosenViewAnimation = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.1)
+        setChosenView(fromItemAt: index)
         
         UIView.animate(
             withDuration: 0.3,
