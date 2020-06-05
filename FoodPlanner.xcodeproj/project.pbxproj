@@ -20,6 +20,7 @@
 		358C6FD12484EFCA0029935A /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C6FD02484EFCA0029935A /* MealDetailViewModel.swift */; };
 		35BE7485248810CA00EA0EE6 /* MealDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE7484248810CA00EA0EE6 /* MealDetailService.swift */; };
 		35BE7488248810DE00EA0EE6 /* MealDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE7487248810DE00EA0EE6 /* MealDetailModel.swift */; };
+		35BE748A248A27FF00EA0EE6 /* IngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE7489248A27FF00EA0EE6 /* IngredientsCell.swift */; };
 		35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FC2483F95100A9BA12 /* EndPoint.swift */; };
 		35CB24002483FDD400A9BA12 /* MealPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */; };
 		35CB24022484017E00A9BA12 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB24012484017E00A9BA12 /* ApiKey.swift */; };
@@ -45,6 +46,7 @@
 		358C6FD02484EFCA0029935A /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
 		35BE7484248810CA00EA0EE6 /* MealDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailService.swift; sourceTree = "<group>"; };
 		35BE7487248810DE00EA0EE6 /* MealDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailModel.swift; sourceTree = "<group>"; };
+		35BE7489248A27FF00EA0EE6 /* IngredientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCell.swift; sourceTree = "<group>"; };
 		35CB23FC2483F95100A9BA12 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerViewModel.swift; sourceTree = "<group>"; };
 		35CB24012484017E00A9BA12 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		358C6FCB2484ECC10029935A /* MealDetail */ = {
 			isa = PBXGroup;
 			children = (
+				35BE748B248A290900EA0EE6 /* CustomCell */,
 				358C6FCC2484ECEC0029935A /* MealPlannerDetailViewController.swift */,
 				358C6FCE2484ECF60029935A /* MealPlannerDetailViewController.storyboard */,
 			);
@@ -185,6 +188,14 @@
 				35BE7487248810DE00EA0EE6 /* MealDetailModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		35BE748B248A290900EA0EE6 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				35BE7489248A27FF00EA0EE6 /* IngredientsCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		35CB23FE2483FDC400A9BA12 /* ViewModel */ = {
@@ -378,6 +389,7 @@
 				35633DDF2483F39C0053F5BA /* MealPlannerService.swift in Sources */,
 				35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */,
 				35FF745624828378001FB26C /* AppDelegate.swift in Sources */,
+				35BE748A248A27FF00EA0EE6 /* IngredientsCell.swift in Sources */,
 				358C6FCD2484ECEC0029935A /* MealPlannerDetailViewController.swift in Sources */,
 				35633DD02483EA530053F5BA /* FastFoodViewController.swift in Sources */,
 				35633DE12483F4DF0053F5BA /* MealPlannerModel.swift in Sources */,

@@ -2,15 +2,19 @@ import NVActivityIndicatorView
 import RxSwift
 import UIKit
 
-class MealPlannerDetailViewController: UIViewController {
+class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var frameView: UIView!
+    @IBOutlet weak var ingredientsTableView: UITableView!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet var nutrients: [UILabel]!
     @IBOutlet weak var scrollContent: UIView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
+    
+    let ingredientRowHeight = CGFloat(25.0)
     
     var activityIndicator: NVActivityIndicatorView!
     var bag = DisposeBag()
@@ -30,11 +34,21 @@ class MealPlannerDetailViewController: UIViewController {
         
         setupSwipeGestureRecogniser()
         setupActivityIndicator()
+        
+        ingredientsTableView.rx.setDelegate(self)
+            .disposed(by: bag)
+        
+        viewModel.ingredientsSubject.bind(to: ingredientsTableView.rx.items(cellIdentifier: "IngredientCell", cellType: IngredientsCell.self)) { _, item, cell in
+            let ingredientsCount = self.viewModel.mealDetailModel?.extendedIngredients.count ?? 0
+            self.tableViewHeightConstraint?.constant = self.ingredientRowHeight * CGFloat(ingredientsCount)
+            cell.ingredientLabel.text = item.original
+        }.disposed(by: bag)
                 
         viewModel.getDetails().asObservable()
             .observeOn(MainScheduler())
             .subscribe(onNext: { mealDetailModel in
                 self.viewModel.mealDetailModel = mealDetailModel
+                self.viewModel.ingredientsSubject.onNext(mealDetailModel.extendedIngredients)
                 self.updateUI(with: mealDetailModel)
                 self.activityIndicator.stopAnimating()
             })
@@ -82,5 +96,9 @@ class MealPlannerDetailViewController: UIViewController {
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         navigationController?.popViewController(animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ingredientRowHeight
     }
 }

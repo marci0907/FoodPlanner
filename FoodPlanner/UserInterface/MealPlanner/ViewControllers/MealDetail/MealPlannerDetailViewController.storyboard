@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rji-IG-hzi">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,29 +12,29 @@
             <objects>
                 <viewController id="Rji-IG-hzi" customClass="MealPlannerDetailViewController" customModule="FoodPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZM-md-KeZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zkM-fZ-qdW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="306.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="237"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zkM-fZ-qdW" secondAttribute="height" multiplier="1.35065" id="a5G-DL-jNb"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-aQ-A1e">
-                                <rect key="frame" x="0.0" y="350.5" width="414" height="511.5"/>
+                                <rect key="frame" x="0.0" y="237" width="320" height="331"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUj-KS-qo2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="511.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iH-hj-bQg" userLabel="ScrollContent">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="511.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEi-m3-30W" userLabel="TitleView">
-                                                        <rect key="frame" x="0.0" y="-2" width="414" height="60"/>
+                                                        <rect key="frame" x="0.0" y="-2" width="320" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXl-Tg-41l" userLabel="title">
-                                                                <rect key="frame" x="30" y="12.5" width="354" height="35"/>
+                                                                <rect key="frame" x="30" y="12.5" width="260" height="35"/>
                                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="25"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -48,32 +48,32 @@
                                                             <constraint firstItem="lXl-Tg-41l" firstAttribute="leading" secondItem="vEi-m3-30W" secondAttribute="leading" constant="30" id="lcQ-2y-ixz"/>
                                                         </constraints>
                                                     </view>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VxT-la-Viv">
-                                                        <rect key="frame" x="45" y="76" width="324" height="80"/>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VxT-la-Viv" userLabel="Nutrients View">
+                                                        <rect key="frame" x="45" y="76" width="230" height="80"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ahR-cu-cTn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="230" height="80"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufk-LW-hwE" userLabel="Cal">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="80"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="57.5" height="80"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-DP-AYt" userLabel="calAmount">
-                                                                                <rect key="frame" x="0.0" y="5" width="81" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="5" width="57.5" height="45"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="45" id="8eu-Wj-yRE"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOc-Hg-4nz" userLabel="calText">
-                                                                                <rect key="frame" x="0.0" y="50" width="81" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="50" width="57.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="WOc-Hg-4nz" firstAttribute="top" secondItem="Ngh-DP-AYt" secondAttribute="bottom" id="6gw-Sx-ggU"/>
                                                                             <constraint firstItem="WOc-Hg-4nz" firstAttribute="leading" secondItem="Ufk-LW-hwE" secondAttribute="leading" id="CDS-8Q-LkI"/>
@@ -85,25 +85,25 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSg-gg-bZC" userLabel="Carbs">
-                                                                        <rect key="frame" x="81" y="0.0" width="81" height="80"/>
+                                                                        <rect key="frame" x="57.5" y="0.0" width="57.5" height="80"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r14-lx-oO8" userLabel="carbAmount">
-                                                                                <rect key="frame" x="0.0" y="5" width="81" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="5" width="57.5" height="45"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="45" id="K9i-ei-iaa"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihj-8V-yHw" userLabel="carbText">
-                                                                                <rect key="frame" x="0.0" y="50" width="81" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="50" width="57.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="r14-lx-oO8" firstAttribute="leading" secondItem="dSg-gg-bZC" secondAttribute="leading" id="Dbi-HH-a64"/>
                                                                             <constraint firstAttribute="trailing" secondItem="r14-lx-oO8" secondAttribute="trailing" id="HLy-Ko-9dX"/>
@@ -115,25 +115,25 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysQ-3l-opv" userLabel="Protein">
-                                                                        <rect key="frame" x="162" y="0.0" width="81" height="80"/>
+                                                                        <rect key="frame" x="115" y="0.0" width="57.5" height="80"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9h-aj-nD0" userLabel="protAmount">
-                                                                                <rect key="frame" x="0.0" y="5" width="81" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="5" width="57.5" height="45"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="45" id="seb-B1-q8l"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJu-lf-YQ5" userLabel="protText">
-                                                                                <rect key="frame" x="0.0" y="50" width="81" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="50" width="57.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="g9h-aj-nD0" firstAttribute="leading" secondItem="ysQ-3l-opv" secondAttribute="leading" id="2xJ-ST-31n"/>
                                                                             <constraint firstItem="TJu-lf-YQ5" firstAttribute="top" secondItem="g9h-aj-nD0" secondAttribute="bottom" id="FP1-dR-Vxl"/>
@@ -145,25 +145,25 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a00-DZ-iYx" userLabel="Fat">
-                                                                        <rect key="frame" x="243" y="0.0" width="81" height="80"/>
+                                                                        <rect key="frame" x="172.5" y="0.0" width="57.5" height="80"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m6-Xx-xTm" userLabel="fatAmount">
-                                                                                <rect key="frame" x="0.0" y="5" width="81" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="5" width="57.5" height="45"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="45" id="Pit-G2-2Jb"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqx-x2-q2Q" userLabel="fatText">
-                                                                                <rect key="frame" x="0.0" y="50" width="81" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="50" width="57.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="Rqx-x2-q2Q" firstAttribute="leading" secondItem="a00-DZ-iYx" secondAttribute="leading" id="2zD-gU-4Cu"/>
                                                                             <constraint firstItem="2m6-Xx-xTm" firstAttribute="leading" secondItem="a00-DZ-iYx" secondAttribute="leading" id="OQI-9x-Ci9"/>
@@ -188,13 +188,70 @@
                                                             <constraint firstItem="ahR-cu-cTn" firstAttribute="top" secondItem="VxT-la-Viv" secondAttribute="top" id="aHb-v5-UsW"/>
                                                         </constraints>
                                                     </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnx-PN-O43">
+                                                        <rect key="frame" x="30" y="181" width="118.5" height="31"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="22"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-EU-J7U">
+                                                        <rect key="frame" x="60" y="222" width="200" height="89"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="89" id="kau-j9-3bs"/>
+                                                        </constraints>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientCell" rowHeight="23" id="eCi-c7-s3I" customClass="IngredientsCell" customModule="FoodPlanner" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="200" height="23"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eCi-c7-s3I" id="hew-TO-6SS">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VB5-lI-KfF">
+                                                                            <rect key="frame" x="12" y="2" width="10" height="19"/>
+                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="10" id="2xx-QS-YSu"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-3o-0Zw" userLabel="ingredientLabel">
+                                                                            <rect key="frame" x="42" y="1.5" width="42" height="20.5"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="VB5-lI-KfF" firstAttribute="centerY" secondItem="hew-TO-6SS" secondAttribute="centerY" id="3aQ-56-Iod"/>
+                                                                        <constraint firstItem="VB5-lI-KfF" firstAttribute="leading" secondItem="hew-TO-6SS" secondAttribute="leading" constant="12" id="HqE-pf-YHo"/>
+                                                                        <constraint firstItem="1Pe-3o-0Zw" firstAttribute="centerY" secondItem="hew-TO-6SS" secondAttribute="centerY" id="I4g-Y4-DHF"/>
+                                                                        <constraint firstItem="1Pe-3o-0Zw" firstAttribute="leading" secondItem="VB5-lI-KfF" secondAttribute="trailing" constant="20" id="Mt4-i8-5ua"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <connections>
+                                                                    <outlet property="ingredientLabel" destination="1Pe-3o-0Zw" id="VJE-90-F7I"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="Lnx-PN-O43" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="30" id="3qe-Vd-xOx"/>
                                                     <constraint firstItem="VxT-la-Viv" firstAttribute="top" secondItem="vEi-m3-30W" secondAttribute="bottom" constant="18" id="6Hg-2h-MWr"/>
+                                                    <constraint firstItem="Lnx-PN-O43" firstAttribute="top" secondItem="VxT-la-Viv" secondAttribute="bottom" constant="25" id="Ir5-dS-5Po"/>
+                                                    <constraint firstItem="KKw-EU-J7U" firstAttribute="top" secondItem="Lnx-PN-O43" secondAttribute="bottom" constant="10" id="KsZ-aW-RqW"/>
                                                     <constraint firstAttribute="trailing" secondItem="VxT-la-Viv" secondAttribute="trailing" constant="45" id="Rqo-Cc-MGn"/>
                                                     <constraint firstAttribute="trailing" secondItem="vEi-m3-30W" secondAttribute="trailing" id="RwZ-zz-IL3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KKw-EU-J7U" secondAttribute="trailing" constant="60" id="hWg-8W-xmO"/>
                                                     <constraint firstItem="vEi-m3-30W" firstAttribute="top" secondItem="3iH-hj-bQg" secondAttribute="top" constant="-2" id="oeu-FA-6aw"/>
+                                                    <constraint firstItem="KKw-EU-J7U" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="60" id="p2C-Q0-p4n"/>
+                                                    <constraint firstAttribute="bottom" secondItem="KKw-EU-J7U" secondAttribute="bottom" constant="20" id="phd-lA-nQq"/>
                                                     <constraint firstItem="VxT-la-Viv" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="45" id="usO-lo-nvs"/>
                                                     <constraint firstItem="vEi-m3-30W" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" id="ux3-6U-ivG"/>
                                                 </constraints>
@@ -235,9 +292,11 @@
                     <connections>
                         <outlet property="contentView" destination="mLd-aQ-A1e" id="DZc-EC-wBb"/>
                         <outlet property="frameView" destination="VxT-la-Viv" id="qcD-BD-XCC"/>
+                        <outlet property="ingredientsTableView" destination="KKw-EU-J7U" id="xLr-I0-efn"/>
                         <outlet property="mealImage" destination="zkM-fZ-qdW" id="R0D-iW-IGL"/>
                         <outlet property="scrollContent" destination="3iH-hj-bQg" id="8hW-1R-dTD"/>
                         <outlet property="stackView" destination="ahR-cu-cTn" id="3sf-8E-k4w"/>
+                        <outlet property="tableViewHeightConstraint" destination="kau-j9-3bs" id="IVp-Bk-ftR"/>
                         <outlet property="titleLabel" destination="lXl-Tg-41l" id="oZa-XE-Lue"/>
                         <outletCollection property="nutrients" destination="Ngh-DP-AYt" collectionClass="NSMutableArray" id="EMS-6h-vZP"/>
                         <outletCollection property="nutrients" destination="r14-lx-oO8" collectionClass="NSMutableArray" id="3C4-4s-4zI"/>
@@ -250,4 +309,7 @@
             <point key="canvasLocation" x="140.57971014492756" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

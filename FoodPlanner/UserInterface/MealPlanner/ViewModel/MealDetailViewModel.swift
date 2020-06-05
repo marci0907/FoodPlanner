@@ -3,7 +3,8 @@ import RxSwift
 class MealDetailViewModel {
 
     typealias service = MealDetailService
-
+    
+    var ingredientsSubject = PublishSubject<[ExtendedIngredient]>()
     var meal: Meal!
     var mealDetailModel: MealDetailModel?
 
