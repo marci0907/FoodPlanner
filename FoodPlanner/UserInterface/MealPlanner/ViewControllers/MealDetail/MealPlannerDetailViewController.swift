@@ -14,7 +14,7 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
-    let ingredientRowHeight = CGFloat(25.0)
+    let ingredientRowHeight = CGFloat(40.0)
     
     var activityIndicator: NVActivityIndicatorView!
     var bag = DisposeBag()
