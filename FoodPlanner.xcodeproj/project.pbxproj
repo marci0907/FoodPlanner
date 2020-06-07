@@ -197,9 +197,8 @@
 		35BE748B248A290900EA0EE6 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				35BE7489248A27FF00EA0EE6 /* IngredientsCell.swift */,
-				3558E2EB248BC2BA001A12C5 /* DirectionCell.swift */,
-				3558E2EC248BC2BA001A12C5 /* DirectionCell.xib */,
+				35CD3E6E248D83E8008910E0 /* Ingredient */,
+				35CD3E6F248D83F6008910E0 /* Direction */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -211,6 +210,23 @@
 				358C6FD02484EFCA0029935A /* MealDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		35CD3E6E248D83E8008910E0 /* Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				35BE7489248A27FF00EA0EE6 /* IngredientsCell.swift */,
+			);
+			path = Ingredient;
+			sourceTree = "<group>";
+		};
+		35CD3E6F248D83F6008910E0 /* Direction */ = {
+			isa = PBXGroup;
+			children = (
+				3558E2EB248BC2BA001A12C5 /* DirectionCell.swift */,
+				3558E2EC248BC2BA001A12C5 /* DirectionCell.xib */,
+			);
+			path = Direction;
 			sourceTree = "<group>";
 		};
 		35FF744924828378001FB26C = {

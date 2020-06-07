@@ -211,14 +211,14 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VB5-lI-KfF">
-                                                                            <rect key="frame" x="12" y="2" width="10" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="2" width="10" height="19"/>
                                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="10" id="2xx-QS-YSu"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-3o-0Zw" userLabel="ingredientLabel">
-                                                                            <rect key="frame" x="42" y="4" width="183" height="15"/>
+                                                                            <rect key="frame" x="30" y="4" width="195" height="15"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -229,7 +229,7 @@
                                                                     <constraints>
                                                                         <constraint firstItem="VB5-lI-KfF" firstAttribute="centerY" secondItem="hew-TO-6SS" secondAttribute="centerY" id="3aQ-56-Iod"/>
                                                                         <constraint firstItem="1Pe-3o-0Zw" firstAttribute="top" secondItem="hew-TO-6SS" secondAttribute="top" constant="4" id="7mP-Qq-7z4"/>
-                                                                        <constraint firstItem="VB5-lI-KfF" firstAttribute="leading" secondItem="hew-TO-6SS" secondAttribute="leading" constant="12" id="HqE-pf-YHo"/>
+                                                                        <constraint firstItem="VB5-lI-KfF" firstAttribute="leading" secondItem="hew-TO-6SS" secondAttribute="leading" id="HqE-pf-YHo"/>
                                                                         <constraint firstAttribute="trailing" secondItem="1Pe-3o-0Zw" secondAttribute="trailing" constant="5" id="Ifh-Iw-1CG"/>
                                                                         <constraint firstItem="1Pe-3o-0Zw" firstAttribute="leading" secondItem="VB5-lI-KfF" secondAttribute="trailing" constant="20" id="Mt4-i8-5ua"/>
                                                                         <constraint firstAttribute="bottom" secondItem="1Pe-3o-0Zw" secondAttribute="bottom" constant="4" id="XiX-ch-gHR"/>

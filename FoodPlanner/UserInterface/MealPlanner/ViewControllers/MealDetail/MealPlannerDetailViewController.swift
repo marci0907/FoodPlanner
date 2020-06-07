@@ -69,10 +69,12 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
                     let number = item.number,
                     let step = item.step
                 else {
-                    cell.textLabel?.text = ""
+                    cell.countLabel?.text = ""
+                    cell.stepLabel.text = ""
                     return
                 }
-                cell.stepLabel?.text = "\(number). \(step)"
+                cell.countLabel?.text = "\(number). "
+                cell.stepLabel?.text = "\(step)"
             }
             .disposed(by: bag)
         
