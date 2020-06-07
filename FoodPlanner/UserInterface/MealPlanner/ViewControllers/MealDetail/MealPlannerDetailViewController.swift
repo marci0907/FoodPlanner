@@ -39,8 +39,9 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
             .disposed(by: bag)
         
         viewModel.ingredientsSubject.bind(to: ingredientsTableView.rx.items(cellIdentifier: "IngredientCell", cellType: IngredientsCell.self)) { _, item, cell in
-            let ingredientsCount = self.viewModel.mealDetailModel?.extendedIngredients.count ?? 0
-            self.tableViewHeightConstraint?.constant = self.ingredientRowHeight * CGFloat(ingredientsCount)
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+            self.tableViewHeightConstraint?.constant = self.ingredientsTableView.contentSize.height
             cell.ingredientLabel.text = item.original
         }.disposed(by: bag)
                 
@@ -96,9 +97,5 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         navigationController?.popViewController(animated: false)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ingredientRowHeight
     }
 }
