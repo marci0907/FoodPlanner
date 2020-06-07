@@ -4,6 +4,7 @@ class MealDetailViewModel {
 
     typealias service = MealDetailService
     
+    var directionsSubject = PublishSubject<[Step]>()
     var ingredientsSubject = PublishSubject<[ExtendedIngredient]>()
     var meal: Meal!
     var mealDetailModel: MealDetailModel?

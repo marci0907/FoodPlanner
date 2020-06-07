@@ -28,12 +28,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iH-hj-bQg" userLabel="ScrollContent">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEi-m3-30W" userLabel="TitleView">
                                                         <rect key="frame" x="0.0" y="-2" width="320" height="60"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXl-Tg-41l" userLabel="title">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="lXl-Tg-41l" userLabel="title">
                                                                 <rect key="frame" x="30" y="12.5" width="260" height="35"/>
                                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="25"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,17 +196,18 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-EU-J7U">
-                                                        <rect key="frame" x="60" y="222" width="200" height="89"/>
+                                                        <rect key="frame" x="45" y="222" width="230" height="89"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="89" id="kau-j9-3bs"/>
                                                         </constraints>
+                                                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientCell" rowHeight="23" id="eCi-c7-s3I" customClass="IngredientsCell" customModule="FoodPlanner" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="28" width="200" height="23"/>
+                                                                <rect key="frame" x="0.0" y="28" width="230" height="23"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eCi-c7-s3I" id="hew-TO-6SS">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="230" height="23"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VB5-lI-KfF">
@@ -217,7 +218,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-3o-0Zw" userLabel="ingredientLabel">
-                                                                            <rect key="frame" x="42" y="4" width="153" height="15"/>
+                                                                            <rect key="frame" x="42" y="4" width="183" height="15"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -241,19 +242,37 @@
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Directions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hr-Jg-xVo">
+                                                        <rect key="frame" x="30" y="331" width="106" height="31"/>
+                                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="22"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z6g-ww-i3w">
+                                                        <rect key="frame" x="40" y="377" width="240" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="oVj-aJ-sUl"/>
+                                                        </constraints>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="6hr-Jg-xVo" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="30" id="1B4-Z4-PtB"/>
                                                     <constraint firstItem="Lnx-PN-O43" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="30" id="3qe-Vd-xOx"/>
                                                     <constraint firstItem="VxT-la-Viv" firstAttribute="top" secondItem="vEi-m3-30W" secondAttribute="bottom" constant="18" id="6Hg-2h-MWr"/>
+                                                    <constraint firstItem="z6g-ww-i3w" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="40" id="EcQ-0V-OnI"/>
                                                     <constraint firstItem="Lnx-PN-O43" firstAttribute="top" secondItem="VxT-la-Viv" secondAttribute="bottom" constant="25" id="Ir5-dS-5Po"/>
                                                     <constraint firstItem="KKw-EU-J7U" firstAttribute="top" secondItem="Lnx-PN-O43" secondAttribute="bottom" constant="10" id="KsZ-aW-RqW"/>
                                                     <constraint firstAttribute="trailing" secondItem="VxT-la-Viv" secondAttribute="trailing" constant="45" id="Rqo-Cc-MGn"/>
                                                     <constraint firstAttribute="trailing" secondItem="vEi-m3-30W" secondAttribute="trailing" id="RwZ-zz-IL3"/>
-                                                    <constraint firstAttribute="trailing" secondItem="KKw-EU-J7U" secondAttribute="trailing" constant="60" id="hWg-8W-xmO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="z6g-ww-i3w" secondAttribute="bottom" constant="10" id="TCi-qG-nmQ"/>
+                                                    <constraint firstItem="6hr-Jg-xVo" firstAttribute="top" secondItem="KKw-EU-J7U" secondAttribute="bottom" constant="20" id="UDo-uS-XwT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="z6g-ww-i3w" secondAttribute="trailing" constant="40" id="d3c-tv-LP1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KKw-EU-J7U" secondAttribute="trailing" constant="45" id="hWg-8W-xmO"/>
                                                     <constraint firstItem="vEi-m3-30W" firstAttribute="top" secondItem="3iH-hj-bQg" secondAttribute="top" constant="-2" id="oeu-FA-6aw"/>
-                                                    <constraint firstItem="KKw-EU-J7U" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="60" id="p2C-Q0-p4n"/>
-                                                    <constraint firstAttribute="bottom" secondItem="KKw-EU-J7U" secondAttribute="bottom" constant="20" id="phd-lA-nQq"/>
+                                                    <constraint firstItem="KKw-EU-J7U" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="45" id="p2C-Q0-p4n"/>
+                                                    <constraint firstItem="z6g-ww-i3w" firstAttribute="top" secondItem="6hr-Jg-xVo" secondAttribute="bottom" constant="15" id="sdk-bd-Trv"/>
                                                     <constraint firstItem="VxT-la-Viv" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" constant="45" id="usO-lo-nvs"/>
                                                     <constraint firstItem="vEi-m3-30W" firstAttribute="leading" secondItem="3iH-hj-bQg" secondAttribute="leading" id="ux3-6U-ivG"/>
                                                 </constraints>
@@ -293,12 +312,14 @@
                     </view>
                     <connections>
                         <outlet property="contentView" destination="mLd-aQ-A1e" id="DZc-EC-wBb"/>
+                        <outlet property="directionsTableView" destination="z6g-ww-i3w" id="SPg-ur-iQu"/>
+                        <outlet property="directionsTableViewHeightConstraint" destination="oVj-aJ-sUl" id="ieQ-OY-GdM"/>
                         <outlet property="frameView" destination="VxT-la-Viv" id="qcD-BD-XCC"/>
+                        <outlet property="ingredientTableViewHeightConstraint" destination="kau-j9-3bs" id="IVp-Bk-ftR"/>
                         <outlet property="ingredientsTableView" destination="KKw-EU-J7U" id="xLr-I0-efn"/>
                         <outlet property="mealImage" destination="zkM-fZ-qdW" id="R0D-iW-IGL"/>
                         <outlet property="scrollContent" destination="3iH-hj-bQg" id="8hW-1R-dTD"/>
                         <outlet property="stackView" destination="ahR-cu-cTn" id="3sf-8E-k4w"/>
-                        <outlet property="tableViewHeightConstraint" destination="kau-j9-3bs" id="IVp-Bk-ftR"/>
                         <outlet property="titleLabel" destination="lXl-Tg-41l" id="oZa-XE-Lue"/>
                         <outletCollection property="nutrients" destination="Ngh-DP-AYt" collectionClass="NSMutableArray" id="EMS-6h-vZP"/>
                         <outletCollection property="nutrients" destination="r14-lx-oO8" collectionClass="NSMutableArray" id="3C4-4s-4zI"/>

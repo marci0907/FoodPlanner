@@ -8,7 +8,7 @@ struct MealDetailModel: Codable {
     let title: String
     let readyInMinutes, servings: Int?
     let nutrition: Nutrition?
-    let analyzedInstructions: [AnalyzedInstruction]?
+    let analyzedInstructions: [AnalyzedInstruction]
 }
 
 struct AnalyzedInstruction: Codable {
@@ -16,8 +16,8 @@ struct AnalyzedInstruction: Codable {
 }
 
 struct Step: Codable {
-    let number: Int
-    let step: String
+    let number: Int?
+    let step: String?
 }
 
 struct ExtendedIngredient: Codable {

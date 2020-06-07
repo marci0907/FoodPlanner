@@ -5,16 +5,29 @@ import UIKit
 class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var directionsTableView: UITableView! {
+        didSet {
+            self.directionsTableView.register(UINib(nibName: "DirectionCell", bundle: .main), forCellReuseIdentifier: "DirectionCell")
+            self.directionsTableView.rx.setDelegate(self)
+                .disposed(by: bag)
+            self.directionsTableView.backgroundColor = UIColor.clear
+        }
+    }
+    @IBOutlet weak var directionsTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var frameView: UIView!
-    @IBOutlet weak var ingredientsTableView: UITableView!
+    @IBOutlet weak var ingredientsTableView: UITableView! {
+        didSet {
+            self.ingredientsTableView.rx.setDelegate(self)
+                .disposed(by: bag)
+            self.ingredientsTableView.backgroundColor = UIColor.clear
+        }
+    }
+    @IBOutlet weak var ingredientTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet var nutrients: [UILabel]!
     @IBOutlet weak var scrollContent: UIView!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
-    
-    let ingredientRowHeight = CGFloat(40.0)
+    @IBOutlet weak var titleLabel: UILabel!
     
     var activityIndicator: NVActivityIndicatorView!
     var bag = DisposeBag()
@@ -35,21 +48,45 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
         setupSwipeGestureRecogniser()
         setupActivityIndicator()
         
-        ingredientsTableView.rx.setDelegate(self)
+        directionsTableView.rx.didEndDisplayingCell
+            .subscribe(onNext: { _ in
+                self.directionsTableViewHeightConstraint?.constant = self.directionsTableView.contentSize.height
+            })
+            .disposed(by: bag)
+                
+        viewModel.ingredientsSubject
+            .bind(to: ingredientsTableView.rx.items(cellIdentifier: "IngredientCell", cellType: IngredientsCell.self)) { _, item, cell in
+                self.view.layoutIfNeeded()
+                self.view.setNeedsLayout()
+                self.ingredientTableViewHeightConstraint?.constant = self.ingredientsTableView.contentSize.height
+                cell.ingredientLabel.text = item.original
+            }
             .disposed(by: bag)
         
-        viewModel.ingredientsSubject.bind(to: ingredientsTableView.rx.items(cellIdentifier: "IngredientCell", cellType: IngredientsCell.self)) { _, item, cell in
-            self.view.setNeedsLayout()
-            self.view.layoutIfNeeded()
-            self.tableViewHeightConstraint?.constant = self.ingredientsTableView.contentSize.height
-            cell.ingredientLabel.text = item.original
-        }.disposed(by: bag)
+        viewModel.directionsSubject
+            .bind(to: directionsTableView.rx.items(cellIdentifier: "DirectionCell", cellType: DirectionCell.self)) { row, item, cell in
+                guard
+                    let number = item.number,
+                    let step = item.step
+                else {
+                    cell.textLabel?.text = ""
+                    return
+                }
+                self.view.layoutIfNeeded()
+                self.view.setNeedsLayout()
+                self.directionsTableView.layoutIfNeeded()
+                self.directionsTableView.setNeedsLayout()
+
+                cell.stepLabel?.text = "\(number). \(step)"
+            }
+            .disposed(by: bag)
                 
         viewModel.getDetails().asObservable()
             .observeOn(MainScheduler())
             .subscribe(onNext: { mealDetailModel in
                 self.viewModel.mealDetailModel = mealDetailModel
                 self.viewModel.ingredientsSubject.onNext(mealDetailModel.extendedIngredients)
+                self.viewModel.directionsSubject.onNext(mealDetailModel.analyzedInstructions.first!.steps)
                 self.updateUI(with: mealDetailModel)
                 self.activityIndicator.stopAnimating()
             })
@@ -71,6 +108,10 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
 
         let fat = viewModel.mealDetailModel!.nutrition!.nutrients.filter({ $0.title == "Fat" }).first!
         nutrients[3].text = "\(Int(fat.amount)) " + fat.unit
+        
+        directionsTableViewHeightConstraint?.constant = self.directionsTableView.contentSize.height
+        self.view.layoutIfNeeded()
+        self.view.setNeedsLayout()
     }
     
     func setupActivityIndicator() {
