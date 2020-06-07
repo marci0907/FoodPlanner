@@ -4,7 +4,6 @@ import UIKit
 
 class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var directionsTableView: UITableView! {
         didSet {
             self.directionsTableView.register(UINib(nibName: "DirectionCell", bundle: .main), forCellReuseIdentifier: "DirectionCell")
@@ -25,7 +24,7 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var ingredientTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet var nutrients: [UILabel]!
-    @IBOutlet weak var scrollContent: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -48,7 +47,8 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
         setupSwipeGestureRecogniser()
         setupActivityIndicator()
         
-        directionsTableView.rx.didEndDisplayingCell
+        scrollView.rx.didScroll
+            .observeOn(MainScheduler())
             .subscribe(onNext: { _ in
                 self.directionsTableViewHeightConstraint?.constant = self.directionsTableView.contentSize.height
             })
@@ -72,15 +72,10 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
                     cell.textLabel?.text = ""
                     return
                 }
-                self.view.layoutIfNeeded()
-                self.view.setNeedsLayout()
-                self.directionsTableView.layoutIfNeeded()
-                self.directionsTableView.setNeedsLayout()
-
                 cell.stepLabel?.text = "\(number). \(step)"
             }
             .disposed(by: bag)
-                
+        
         viewModel.getDetails().asObservable()
             .observeOn(MainScheduler())
             .subscribe(onNext: { mealDetailModel in
@@ -94,7 +89,7 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     }
     
     func updateUI(with meal: MealDetailModel) {
-        scrollContent.isHidden = false
+        scrollView.isHidden = false
         titleLabel.text = meal.title
         
         let calories = viewModel.mealDetailModel!.nutrition!.nutrients.filter({ $0.title == "Calories" }).first!
@@ -108,10 +103,6 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
 
         let fat = viewModel.mealDetailModel!.nutrition!.nutrients.filter({ $0.title == "Fat" }).first!
         nutrients[3].text = "\(Int(fat.amount)) " + fat.unit
-        
-        directionsTableViewHeightConstraint?.constant = self.directionsTableView.contentSize.height
-        self.view.layoutIfNeeded()
-        self.view.setNeedsLayout()
     }
     
     func setupActivityIndicator() {
@@ -126,7 +117,7 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         activityIndicator.startAnimating()
-        scrollContent.isHidden = true
+        scrollView.isHidden = true
     }
     
     func setupSwipeGestureRecogniser() {

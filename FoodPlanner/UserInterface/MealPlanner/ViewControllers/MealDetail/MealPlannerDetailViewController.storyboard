@@ -311,14 +311,13 @@
                         <viewLayoutGuide key="safeArea" id="PWW-Hd-cZO"/>
                     </view>
                     <connections>
-                        <outlet property="contentView" destination="mLd-aQ-A1e" id="DZc-EC-wBb"/>
                         <outlet property="directionsTableView" destination="z6g-ww-i3w" id="SPg-ur-iQu"/>
                         <outlet property="directionsTableViewHeightConstraint" destination="oVj-aJ-sUl" id="ieQ-OY-GdM"/>
                         <outlet property="frameView" destination="VxT-la-Viv" id="qcD-BD-XCC"/>
                         <outlet property="ingredientTableViewHeightConstraint" destination="kau-j9-3bs" id="IVp-Bk-ftR"/>
                         <outlet property="ingredientsTableView" destination="KKw-EU-J7U" id="xLr-I0-efn"/>
                         <outlet property="mealImage" destination="zkM-fZ-qdW" id="R0D-iW-IGL"/>
-                        <outlet property="scrollContent" destination="3iH-hj-bQg" id="8hW-1R-dTD"/>
+                        <outlet property="scrollView" destination="NUj-KS-qo2" id="dtA-Fj-WOQ"/>
                         <outlet property="stackView" destination="ahR-cu-cTn" id="3sf-8E-k4w"/>
                         <outlet property="titleLabel" destination="lXl-Tg-41l" id="oZa-XE-Lue"/>
                         <outletCollection property="nutrients" destination="Ngh-DP-AYt" collectionClass="NSMutableArray" id="EMS-6h-vZP"/>
