@@ -16,18 +16,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3t-s0-xFB">
-                        <rect key="frame" x="5" y="5" width="20" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3t-s0-xFB">
+                        <rect key="frame" x="5" y="6" width="25" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="At7-gn-0bb"/>
+                            <constraint firstAttribute="width" constant="25" id="1YC-Rd-cSf"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" preservesSuperviewLayoutMargins="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-jk-cgj">
-                        <rect key="frame" x="27" y="5" width="288" height="87"/>
+                        <rect key="frame" x="34" y="5" width="281" height="87"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,10 +38,10 @@
                 <constraints>
                     <constraint firstItem="I3t-s0-xFB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="7QG-gD-HqL"/>
                     <constraint firstAttribute="bottom" secondItem="qNt-jk-cgj" secondAttribute="bottom" constant="5" id="FCR-Sm-vXT"/>
-                    <constraint firstItem="I3t-s0-xFB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Hlu-A7-3DM"/>
+                    <constraint firstItem="I3t-s0-xFB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="Hlu-A7-3DM"/>
                     <constraint firstItem="qNt-jk-cgj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="JD9-IJ-7v0"/>
                     <constraint firstAttribute="trailing" secondItem="qNt-jk-cgj" secondAttribute="trailing" constant="5" id="aju-ko-Chm"/>
-                    <constraint firstItem="qNt-jk-cgj" firstAttribute="leading" secondItem="I3t-s0-xFB" secondAttribute="trailing" constant="2" id="ps9-31-vBl"/>
+                    <constraint firstItem="qNt-jk-cgj" firstAttribute="leading" secondItem="I3t-s0-xFB" secondAttribute="trailing" constant="4" id="ps9-31-vBl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
