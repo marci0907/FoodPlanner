@@ -99,8 +99,8 @@ class MealPlannerViewController: UIViewController {
         view.addSubview(chosenView)
         
         let superViewChosenViewWidthRatio = view.frame.size.width / chosenView.frame.size.width
-        let chosenViewDistanceFromTop = -chosenView.frame.origin.y + 82
-        chosenViewAnimation = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.1)
+        let chosenViewDistanceFromTop = -chosenView.frame.origin.y + 57
+        chosenViewAnimation = chosenView.transform.translatedBy(x: 0, y: chosenViewDistanceFromTop).scaledBy(x: superViewChosenViewWidthRatio, y: 1.11)
     }
 
 }

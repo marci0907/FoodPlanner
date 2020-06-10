@@ -80,12 +80,14 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
         
         viewModel.getDetails().asObservable()
             .observeOn(MainScheduler())
-            .subscribe(onNext: { mealDetailModel in
-                self.viewModel.mealDetailModel = mealDetailModel
-                self.viewModel.ingredientsSubject.onNext(mealDetailModel.extendedIngredients)
-                self.viewModel.directionsSubject.onNext(mealDetailModel.analyzedInstructions.first!.steps)
-                self.updateUI(with: mealDetailModel)
-                self.activityIndicator.stopAnimating()
+            .subscribe(onNext: { [weak self] mealDetailModel in
+                self?.viewModel.mealDetailModel = mealDetailModel
+                self?.viewModel.ingredientsSubject.onNext(mealDetailModel.extendedIngredients)
+                if let instructions = mealDetailModel.analyzedInstructions.first {
+                    self?.viewModel.directionsSubject.onNext(instructions.steps)
+                }
+                self?.updateUI(with: mealDetailModel)
+                self?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
     }
