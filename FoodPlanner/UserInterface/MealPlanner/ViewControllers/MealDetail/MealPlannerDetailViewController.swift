@@ -12,8 +12,8 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
             self.directionsTableView.backgroundColor = UIColor.clear
         }
     }
-    @IBOutlet weak var directionsTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var frameView: UIView!
+    @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var ingredientsTableView: UITableView! {
         didSet {
             self.ingredientsTableView.rx.setDelegate(self)
@@ -21,20 +21,31 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
             self.ingredientsTableView.backgroundColor = UIColor.clear
         }
     }
-    @IBOutlet weak var ingredientTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet var nutrients: [UILabel]!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var directionsTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ingredientTableViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var bottomImageConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leadingImageConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingImageConstraint: NSLayoutConstraint!
+    
     var activityIndicator: NVActivityIndicatorView!
     var bag = DisposeBag()
     var viewModel: MealDetailViewModel!
+    
+    let minImageTrailingDistance: CGFloat = 0
+    let maxImageTrailingDistance: CGFloat = 314
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mealImage.image = UIImage(data: viewModel.meal.image!)
+        
+        scrollView.delegate = self
         
         frameView.layer.cornerRadius = 12
         frameView.layer.borderWidth = 1
@@ -93,6 +104,8 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     }
     
     func updateUI(with meal: MealDetailModel) {
+        headerTitleLabel.text = meal.title
+        headerTitleLabel.alpha = 0
         scrollView.isHidden = false
         titleLabel.text = meal.title
         
@@ -133,5 +146,33 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         navigationController?.popViewController(animated: false)
+    }
+}
+
+extension MealPlannerDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        let newTrailingDistance = trailingImageConstraint.constant + y
+        
+        if newTrailingDistance > maxImageTrailingDistance {
+            bottomImageConstraint.constant = 5
+            leadingImageConstraint.constant = 6
+            trailingImageConstraint.constant = maxImageTrailingDistance
+        } else if newTrailingDistance < minImageTrailingDistance {
+            bottomImageConstraint.constant = 0
+            leadingImageConstraint.constant = 0
+            trailingImageConstraint.constant = minImageTrailingDistance
+        } else {
+            bottomImageConstraint.constant = newTrailingDistance / 60
+            leadingImageConstraint.constant = newTrailingDistance / 50
+            trailingImageConstraint.constant = newTrailingDistance
+            scrollView.contentOffset.y = 0
+        }
+        
+        if y > 40.0 && headerTitleLabel.alpha < 1 {
+            headerTitleLabel.alpha += y / 100
+        } else if headerTitleLabel.alpha > 0 {
+            headerTitleLabel.alpha -= 0.2
+        }
     }
 }
