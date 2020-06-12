@@ -40,6 +40,10 @@ class MealPlannerDetailViewController: UIViewController, UITableViewDelegate {
     
     let minImageTrailingDistance: CGFloat = 0
     let maxImageTrailingDistance: CGFloat = 314
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,6 +177,8 @@ extension MealPlannerDetailViewController: UIScrollViewDelegate {
             headerTitleLabel.alpha += y / 100
         } else if headerTitleLabel.alpha > 0 {
             headerTitleLabel.alpha -= 0.2
+        } else if y < 10 {
+            headerTitleLabel.alpha = 0
         }
     }
 }
