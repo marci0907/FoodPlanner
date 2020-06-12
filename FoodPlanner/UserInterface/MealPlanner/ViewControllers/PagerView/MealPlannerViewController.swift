@@ -14,6 +14,7 @@ class MealPlannerViewController: UIViewController {
     var bag = DisposeBag()
     var chosenView: UIImageView!
     var chosenViewAnimation: CGAffineTransform!
+    var currentPagerIndex = 0
     var viewModel: MealPlannerViewModel!
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -154,6 +155,10 @@ extension MealPlannerViewController: FSPagerViewDelegate {
     }
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
+        if (currentPagerIndex - pagerView.currentIndex) > 1 {
+            return
+        }
+        currentPagerIndex = pagerView.currentIndex
         setLabels()
     }
 }
