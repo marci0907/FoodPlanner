@@ -26,6 +26,9 @@
 		35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FC2483F95100A9BA12 /* EndPoint.swift */; };
 		35CB24002483FDD400A9BA12 /* MealPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */; };
 		35CB24022484017E00A9BA12 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB24012484017E00A9BA12 /* ApiKey.swift */; };
+		35CD3E73249A7C1D008910E0 /* FastFoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CD3E72249A7C1D008910E0 /* FastFoodService.swift */; };
+		35CD3E75249A7D37008910E0 /* FastFoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CD3E74249A7D37008910E0 /* FastFoodModel.swift */; };
+		35CD3E79249A8221008910E0 /* FastFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CD3E78249A8221008910E0 /* FastFoodViewModel.swift */; };
 		35FF745624828378001FB26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF745524828378001FB26C /* AppDelegate.swift */; };
 		35FF745824828378001FB26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF745724828378001FB26C /* SceneDelegate.swift */; };
 		35FF745F2482837D001FB26C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35FF745E2482837D001FB26C /* Assets.xcassets */; };
@@ -54,6 +57,9 @@
 		35CB23FC2483F95100A9BA12 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		35CB23FF2483FDD400A9BA12 /* MealPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerViewModel.swift; sourceTree = "<group>"; };
 		35CB24012484017E00A9BA12 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
+		35CD3E72249A7C1D008910E0 /* FastFoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodService.swift; sourceTree = "<group>"; };
+		35CD3E74249A7D37008910E0 /* FastFoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodModel.swift; sourceTree = "<group>"; };
+		35CD3E78249A8221008910E0 /* FastFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodViewModel.swift; sourceTree = "<group>"; };
 		35FF745224828378001FB26C /* FoodPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35FF745524828378001FB26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35FF745724828378001FB26C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,8 +113,8 @@
 		35633DCD2483EA1F0053F5BA /* FastFood */ = {
 			isa = PBXGroup;
 			children = (
-				35633DCF2483EA520053F5BA /* FastFoodViewController.swift */,
-				35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */,
+				35CD3E76249A81F2008910E0 /* ViewModel */,
+				35CD3E77249A81F8008910E0 /* ViewController */,
 			);
 			path = FastFood;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 		35633DDB2483F3530053F5BA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				35CD3E70249A7BE7008910E0 /* FastFood */,
 				35BE7483248810B500EA0EE6 /* MealDetail */,
 				35633DDC2483F37A0053F5BA /* MealPlanner */,
 				35CB23FC2483F95100A9BA12 /* EndPoint.swift */,
@@ -227,6 +234,40 @@
 				3558E2EC248BC2BA001A12C5 /* DirectionCell.xib */,
 			);
 			path = Direction;
+			sourceTree = "<group>";
+		};
+		35CD3E70249A7BE7008910E0 /* FastFood */ = {
+			isa = PBXGroup;
+			children = (
+				35CD3E71249A7BF2008910E0 /* Model */,
+				35CD3E72249A7C1D008910E0 /* FastFoodService.swift */,
+			);
+			path = FastFood;
+			sourceTree = "<group>";
+		};
+		35CD3E71249A7BF2008910E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35CD3E74249A7D37008910E0 /* FastFoodModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35CD3E76249A81F2008910E0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				35CD3E78249A8221008910E0 /* FastFoodViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		35CD3E77249A81F8008910E0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				35633DCF2483EA520053F5BA /* FastFoodViewController.swift */,
+				35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		35FF744924828378001FB26C = {
@@ -414,13 +455,16 @@
 				35FF745624828378001FB26C /* AppDelegate.swift in Sources */,
 				35BE748A248A27FF00EA0EE6 /* IngredientsCell.swift in Sources */,
 				358C6FCD2484ECEC0029935A /* MealPlannerDetailViewController.swift in Sources */,
+				35CD3E75249A7D37008910E0 /* FastFoodModel.swift in Sources */,
 				35633DD02483EA530053F5BA /* FastFoodViewController.swift in Sources */,
 				35633DE12483F4DF0053F5BA /* MealPlannerModel.swift in Sources */,
 				35633DD42483EA640053F5BA /* RecipesViewController.swift in Sources */,
 				35FF745824828378001FB26C /* SceneDelegate.swift in Sources */,
 				358C6FD12484EFCA0029935A /* MealDetailViewModel.swift in Sources */,
 				35BE7485248810CA00EA0EE6 /* MealDetailService.swift in Sources */,
+				35CD3E79249A8221008910E0 /* FastFoodViewModel.swift in Sources */,
 				3558E2ED248BC2BA001A12C5 /* DirectionCell.swift in Sources */,
+				35CD3E73249A7C1D008910E0 /* FastFoodService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
