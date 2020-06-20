@@ -14,13 +14,66 @@
                     <view key="view" contentMode="scaleToFill" id="QHD-cR-ybu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dAO-0J-LyT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantCell" rowHeight="142" id="Arz-Yx-x8e" customClass="FastFoodTableViewCell" customModule="FoodPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="142"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Arz-Yx-x8e" id="VNu-Uu-0al">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eiv-qq-fxA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t8g-IN-u4b">
+                                                        <size key="itemSize" width="128" height="128"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Arz-Yx-x8e" id="oCb-lt-cSE"/>
+                                                        <outlet property="delegate" destination="Arz-Yx-x8e" id="PAO-bs-OZs"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Eiv-qq-fxA" firstAttribute="top" secondItem="VNu-Uu-0al" secondAttribute="top" id="NdA-Co-fH8"/>
+                                                <constraint firstAttribute="bottom" secondItem="Eiv-qq-fxA" secondAttribute="bottom" id="Ogm-F1-rXB"/>
+                                                <constraint firstAttribute="trailing" secondItem="Eiv-qq-fxA" secondAttribute="trailing" id="aow-Sp-bh7"/>
+                                                <constraint firstItem="Eiv-qq-fxA" firstAttribute="leading" secondItem="VNu-Uu-0al" secondAttribute="leading" id="uNP-Zs-thD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="collectionView" destination="Eiv-qq-fxA" id="1Ph-LM-eiQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hpy-AP-pQY" firstAttribute="bottom" secondItem="dAO-0J-LyT" secondAttribute="bottom" id="O7k-XX-XGK"/>
+                            <constraint firstItem="dAO-0J-LyT" firstAttribute="leading" secondItem="Hpy-AP-pQY" secondAttribute="leading" id="S6x-El-4XS"/>
+                            <constraint firstItem="Hpy-AP-pQY" firstAttribute="trailing" secondItem="dAO-0J-LyT" secondAttribute="trailing" id="V67-YC-pjK"/>
+                            <constraint firstItem="dAO-0J-LyT" firstAttribute="top" secondItem="Hpy-AP-pQY" secondAttribute="top" id="pUm-EV-1IX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Hpy-AP-pQY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="dAO-0J-LyT" id="Xwu-8R-mxB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgz-Jf-b3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
