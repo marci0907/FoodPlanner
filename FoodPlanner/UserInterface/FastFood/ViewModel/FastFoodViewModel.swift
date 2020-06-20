@@ -23,7 +23,7 @@ class FastFoodViewModel {
         restaurantArray.forEach { currentRestaurant in
             var restaurant: Restaurant = Restaurant(name: "", foods: [])
             restaurant.name = currentRestaurant
-            restaurant.foods = foods.filter { $0.restaurantChain! == currentRestaurant }
+            restaurant.foods = foods.filter { $0.restaurantChain! == currentRestaurant && $0.imageData != nil }
             self.restaurants.append(restaurant)
         }
         restaurants.sort(by: { $0.foods.count > $1.foods.count })

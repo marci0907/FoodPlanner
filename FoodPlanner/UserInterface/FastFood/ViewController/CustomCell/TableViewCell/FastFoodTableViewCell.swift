@@ -29,8 +29,8 @@ extension FastFoodTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.collectionViewCellReuseIdentifier, for: indexPath) as! FastFoodCollectionViewCell
         let currentItem = cellViewModel?.foods[indexPath.row]
         
-        if let item = currentItem, let image = item.imageData {
-            cell.configureCell(with: image)
+        if let item = currentItem {
+            cell.configureCell(with: item.imageData!)
             cell.fastFoodLabel.text = currentItem!.title
         }
         return cell
