@@ -21,7 +21,9 @@ class FastFoodViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-                
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 80))
+        tableView.contentInset = UIEdgeInsets(top: -80, left: 0, bottom: 0, right: 0)
+        
         viewModel.getFastFood().asObservable()
             .observeOn(MainScheduler())
             .subscribe(onNext: { [weak self] fastFoods in
@@ -40,8 +42,21 @@ extension FastFoodViewController: UITableViewDelegate {
         else {
             return 180
         }
-        // 30 = 2 * 5 section inset + 2 * 10 constraint
-        return image.size.height + 30.0
+        return image.size.height + 44.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let headerView = view as? UITableViewHeaderFooterView else { return }
+        headerView.contentView.backgroundColor = UIColor.white
+        headerView.backgroundColor = UIColor.white
+        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        headerView.textLabel?.text = viewModel.restaurants[section].name
+        headerView.textLabel?.textColor = UIColor.black
+        headerView.textLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
     }
 }
 
@@ -49,11 +64,9 @@ extension FastFoodViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.restaurants.count
     }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.restaurants[section].name
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

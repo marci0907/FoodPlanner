@@ -31,6 +31,7 @@ extension FastFoodTableViewCell: UICollectionViewDataSource {
         
         if let item = currentItem, let image = item.imageData {
             cell.configureCell(with: image)
+            cell.fastFoodLabel.text = currentItem!.title
         }
         return cell
     }

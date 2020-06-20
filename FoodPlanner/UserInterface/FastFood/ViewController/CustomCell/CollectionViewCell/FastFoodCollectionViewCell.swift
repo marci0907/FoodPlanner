@@ -3,6 +3,7 @@ import UIKit
 class FastFoodCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var fastFoodImage: UIImageView!
+    @IBOutlet weak var fastFoodLabel: UILabel!
     @IBOutlet weak var view: UIView!
     
     override func awakeFromNib() {

@@ -17,28 +17,44 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcx-K7-nLg">
-                        <rect key="frame" x="10" y="10" width="250" height="150"/>
+                        <rect key="frame" x="10" y="5" width="250" height="160"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErU-VW-jh9">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="136"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiV-ZD-vjs">
+                                <rect key="frame" x="7" y="136" width="236" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fiV-ZD-vjs" firstAttribute="width" secondItem="ErU-VW-jh9" secondAttribute="width" multiplier="0.944" id="5dc-Py-f95"/>
+                            <constraint firstAttribute="bottom" secondItem="fiV-ZD-vjs" secondAttribute="bottom" id="8LU-Qf-lFR"/>
+                            <constraint firstItem="ErU-VW-jh9" firstAttribute="top" secondItem="lcx-K7-nLg" secondAttribute="top" id="Bqw-yW-qCU"/>
+                            <constraint firstItem="fiV-ZD-vjs" firstAttribute="leading" secondItem="lcx-K7-nLg" secondAttribute="leading" constant="7" id="PGn-vG-Nzg"/>
+                            <constraint firstAttribute="trailing" secondItem="ErU-VW-jh9" secondAttribute="trailing" id="Xbu-Xv-lwn"/>
+                            <constraint firstItem="fiV-ZD-vjs" firstAttribute="top" secondItem="ErU-VW-jh9" secondAttribute="bottom" id="bCl-lj-Wbv"/>
+                            <constraint firstAttribute="trailing" secondItem="fiV-ZD-vjs" secondAttribute="trailing" constant="7" id="cUB-p7-a0r"/>
+                            <constraint firstItem="ErU-VW-jh9" firstAttribute="leading" secondItem="lcx-K7-nLg" secondAttribute="leading" id="rGj-Jy-gcH"/>
+                        </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErU-VW-jh9">
-                        <rect key="frame" x="10" y="10" width="250" height="150"/>
-                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ErU-VW-jh9" firstAttribute="top" secondItem="lcx-K7-nLg" secondAttribute="top" id="Die-OY-0af"/>
                 <constraint firstAttribute="trailing" secondItem="lcx-K7-nLg" secondAttribute="trailing" constant="10" id="IPk-Kv-OjS"/>
-                <constraint firstItem="lcx-K7-nLg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Me9-Bw-sNx"/>
-                <constraint firstItem="ErU-VW-jh9" firstAttribute="trailing" secondItem="lcx-K7-nLg" secondAttribute="trailing" id="Ui4-rD-KJd"/>
+                <constraint firstItem="lcx-K7-nLg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Me9-Bw-sNx"/>
                 <constraint firstItem="lcx-K7-nLg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="VWr-BR-1ZF"/>
-                <constraint firstItem="ErU-VW-jh9" firstAttribute="bottom" secondItem="lcx-K7-nLg" secondAttribute="bottom" id="WeT-3C-8AP"/>
-                <constraint firstAttribute="bottom" secondItem="lcx-K7-nLg" secondAttribute="bottom" constant="10" id="Z2l-Uy-z7t"/>
-                <constraint firstItem="ErU-VW-jh9" firstAttribute="leading" secondItem="lcx-K7-nLg" secondAttribute="leading" id="dsb-tY-QmF"/>
+                <constraint firstAttribute="bottom" secondItem="lcx-K7-nLg" secondAttribute="bottom" constant="5" id="Z2l-Uy-z7t"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="286" height="180"/>
             <connections>
                 <outlet property="fastFoodImage" destination="ErU-VW-jh9" id="Kln-hC-PhD"/>
+                <outlet property="fastFoodLabel" destination="fiV-ZD-vjs" id="rUJ-iy-jKo"/>
                 <outlet property="view" destination="lcx-K7-nLg" id="Tyg-4B-4jV"/>
             </connections>
             <point key="canvasLocation" x="308.69565217391306" y="172.09821428571428"/>
