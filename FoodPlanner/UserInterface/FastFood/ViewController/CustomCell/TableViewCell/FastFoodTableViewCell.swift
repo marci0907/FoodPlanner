@@ -20,6 +20,13 @@ class FastFoodTableViewCell: UITableViewCell {
     }
 }
 
+extension FastFoodTableViewCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let currentImage = UIImage(data: cellViewModel.foods[indexPath.row].imageData!)!
+        return CGSize(width: currentImage.size.width + 20, height: self.contentView.frame.size.height)
+    }
+}
+
 extension FastFoodTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellViewModel?.foods.count ?? 0

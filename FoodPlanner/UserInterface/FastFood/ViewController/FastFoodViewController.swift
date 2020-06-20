@@ -39,7 +39,10 @@ extension FastFoodViewController: UITableViewDelegate {
         let imageData = viewModel.restaurants[indexPath.section].foods[indexPath.row].imageData!
         let image = UIImage(data: imageData)
         
-        return image!.size.height + 44.0
+        let maximumImageSize = CGFloat(156)
+        let currentImageSize = image!.size.height
+
+        return currentImageSize > maximumImageSize ? maximumImageSize + 34 : currentImageSize + 34
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
