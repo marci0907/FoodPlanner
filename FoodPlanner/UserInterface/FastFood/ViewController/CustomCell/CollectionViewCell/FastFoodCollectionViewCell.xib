@@ -35,7 +35,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fiV-ZD-vjs" firstAttribute="width" secondItem="ErU-VW-jh9" secondAttribute="width" multiplier="0.944" id="5dc-Py-f95"/>
                             <constraint firstAttribute="bottom" secondItem="fiV-ZD-vjs" secondAttribute="bottom" id="8LU-Qf-lFR"/>
                             <constraint firstItem="ErU-VW-jh9" firstAttribute="top" secondItem="lcx-K7-nLg" secondAttribute="top" id="Bqw-yW-qCU"/>
                             <constraint firstItem="fiV-ZD-vjs" firstAttribute="leading" secondItem="lcx-K7-nLg" secondAttribute="leading" constant="7" id="PGn-vG-Nzg"/>
