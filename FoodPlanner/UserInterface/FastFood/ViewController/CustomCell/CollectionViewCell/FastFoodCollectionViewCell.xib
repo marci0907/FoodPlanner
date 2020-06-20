@@ -20,12 +20,8 @@
                         <rect key="frame" x="10" y="10" width="250" height="150"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErU-VW-jh9">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErU-VW-jh9">
                         <rect key="frame" x="10" y="10" width="250" height="150"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="150" id="Z9F-cN-hDG"/>
-                            <constraint firstAttribute="width" constant="250" id="dPD-qH-kaH"/>
-                        </constraints>
                     </imageView>
                 </subviews>
             </view>

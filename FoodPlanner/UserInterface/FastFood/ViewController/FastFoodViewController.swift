@@ -34,7 +34,14 @@ class FastFoodViewController: UIViewController {
 
 extension FastFoodViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        guard
+            let imageData = viewModel.restaurants[indexPath.section].foods[indexPath.row].imageData,
+            let image = UIImage(data: imageData)
+        else {
+            return 180
+        }
+        // 30 = 2 * 5 section inset + 2 * 10 constraint
+        return image.size.height + 30.0
     }
 }
 
