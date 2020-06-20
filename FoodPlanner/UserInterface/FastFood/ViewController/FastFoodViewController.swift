@@ -7,7 +7,11 @@ class FastFoodViewController: UIViewController {
         static let tableViewCellReuseIdentifier = "RestaurantCell"
     }
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.backgroundColor = UIColor.clear
+        }
+    }
     
     let bag = DisposeBag()
     let viewModel = FastFoodViewModel()

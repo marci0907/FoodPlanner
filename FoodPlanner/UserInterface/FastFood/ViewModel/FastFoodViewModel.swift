@@ -26,6 +26,7 @@ class FastFoodViewModel {
             restaurant.foods = foods.filter { $0.restaurantChain! == currentRestaurant }
             self.restaurants.append(restaurant)
         }
+        restaurants.sort(by: { $0.foods.count > $1.foods.count })
     }
 }
 

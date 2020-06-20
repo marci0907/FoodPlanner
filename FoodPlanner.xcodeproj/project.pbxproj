@@ -280,27 +280,27 @@
 		35E1721F249A9FA2000B92BC /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				35E17226249C9B8C000B92BC /* CollectionView */,
-				35E17227249C9B9B000B92BC /* TableView */,
+				35E17226249C9B8C000B92BC /* CollectionViewCell */,
+				35E17227249C9B9B000B92BC /* TableViewCell */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
 		};
-		35E17226249C9B8C000B92BC /* CollectionView */ = {
+		35E17226249C9B8C000B92BC /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				35E17220249A9FCA000B92BC /* FastFoodCollectionViewCell.swift */,
 				35E17221249A9FCA000B92BC /* FastFoodCollectionViewCell.xib */,
 			);
-			path = CollectionView;
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
-		35E17227249C9B9B000B92BC /* TableView */ = {
+		35E17227249C9B9B000B92BC /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				35E17224249C12E1000B92BC /* FastFoodTableViewCell.swift */,
 			);
-			path = TableView;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		35FF744924828378001FB26C = {
