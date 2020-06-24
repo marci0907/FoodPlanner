@@ -15,8 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4I-GM-nU0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="i5S-o0-WoL">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="i5S-o0-WoL" secondAttribute="trailing" id="Ad9-8g-wUz"/>
+                                    <constraint firstAttribute="height" constant="44" id="ey4-p6-o72"/>
+                                    <constraint firstAttribute="bottom" secondItem="i5S-o0-WoL" secondAttribute="bottom" id="g3e-DB-BZX"/>
+                                    <constraint firstItem="i5S-o0-WoL" firstAttribute="leading" secondItem="K4I-GM-nU0" secondAttribute="leading" id="g8S-Cd-I4p"/>
+                                    <constraint firstItem="i5S-o0-WoL" firstAttribute="top" secondItem="K4I-GM-nU0" secondAttribute="top" id="mHU-PL-bH2"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dAO-0J-LyT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantCell" rowHeight="142" id="Arz-Yx-x8e" customClass="FastFoodTableViewCell" customModule="FoodPlanner" customModuleProvider="target">
@@ -60,14 +77,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dAO-0J-LyT" firstAttribute="top" secondItem="K4I-GM-nU0" secondAttribute="bottom" id="B1M-Ex-ysb"/>
                             <constraint firstItem="Hpy-AP-pQY" firstAttribute="bottom" secondItem="dAO-0J-LyT" secondAttribute="bottom" id="O7k-XX-XGK"/>
                             <constraint firstItem="dAO-0J-LyT" firstAttribute="leading" secondItem="Hpy-AP-pQY" secondAttribute="leading" id="S6x-El-4XS"/>
                             <constraint firstItem="Hpy-AP-pQY" firstAttribute="trailing" secondItem="dAO-0J-LyT" secondAttribute="trailing" id="V67-YC-pjK"/>
-                            <constraint firstItem="dAO-0J-LyT" firstAttribute="top" secondItem="Hpy-AP-pQY" secondAttribute="top" id="pUm-EV-1IX"/>
+                            <constraint firstItem="Hpy-AP-pQY" firstAttribute="trailing" secondItem="K4I-GM-nU0" secondAttribute="trailing" id="aEg-zJ-2M0"/>
+                            <constraint firstItem="K4I-GM-nU0" firstAttribute="leading" secondItem="Hpy-AP-pQY" secondAttribute="leading" id="cAK-iO-PSV"/>
+                            <constraint firstItem="K4I-GM-nU0" firstAttribute="top" secondItem="Hpy-AP-pQY" secondAttribute="top" id="nJS-35-sUL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hpy-AP-pQY"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="i5S-o0-WoL" id="j1e-cH-B38"/>
                         <outlet property="tableView" destination="dAO-0J-LyT" id="Xwu-8R-mxB"/>
                     </connections>
                 </viewController>

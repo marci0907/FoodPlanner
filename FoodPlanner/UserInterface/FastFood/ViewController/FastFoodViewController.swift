@@ -7,6 +7,7 @@ class FastFoodViewController: UIViewController {
         static let tableViewCellReuseIdentifier = "RestaurantCell"
     }
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = UIColor.clear
@@ -23,6 +24,8 @@ class FastFoodViewController: UIViewController {
         tableView.delegate = self
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 80))
         tableView.contentInset = UIEdgeInsets(top: -80, left: 0, bottom: 0, right: 0)
+        
+        searchBar.delegate = self
         
         viewModel.getFastFood().asObservable()
             .observeOn(MainScheduler())
@@ -74,5 +77,28 @@ extension FastFoodViewController: UITableViewDataSource {
         cell.cellViewModel = viewModel.restaurants[indexPath.section]
         cell.collectionView.reloadData()
         return cell
+    }
+}
+
+extension FastFoodViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard var text = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return
+        }
+        
+        if text == "" {
+            text = "burger"
+        }
+        
+        viewModel.getFastFood(withQuery: text).asObservable()
+            .observeOn(MainScheduler())
+            .debounce(.milliseconds(400), scheduler: MainScheduler())
+            .subscribe(onNext: { [weak self] fastFoods in
+                self?.viewModel.fastFoods = []
+                self?.tableView.reloadData()
+                self?.viewModel.fastFoods = fastFoods
+                self?.tableView.reloadData()
+            })
+            .disposed(by: bag)
     }
 }
