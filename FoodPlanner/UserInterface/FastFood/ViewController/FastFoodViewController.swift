@@ -30,6 +30,7 @@ class FastFoodViewController: UIViewController {
         searchBar.delegate = self
         
         setupActivityIndicator()
+        setupTapGestureRecogniser()
         
         viewModel.getFastFood().asObservable()
             .observeOn(MainScheduler())
@@ -41,7 +42,16 @@ class FastFoodViewController: UIViewController {
             .disposed(by: bag)
     }
     
-    func setupActivityIndicator() {
+    private func setupTapGestureRecogniser() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchBarResignFirstResponder))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func searchBarResignFirstResponder() {
+        searchBar.resignFirstResponder()
+    }
+    
+    private func setupActivityIndicator() {
         activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50),
                                                     type: .circleStrokeSpin,
                                                     color: .black,
