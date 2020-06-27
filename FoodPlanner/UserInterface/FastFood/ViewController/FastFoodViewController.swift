@@ -5,6 +5,7 @@ import UIKit
 class FastFoodViewController: UIViewController {
     
     private enum Constants {
+        static let tableViewHeaderHeight: CGFloat = 80.0
         static let tableViewCellReuseIdentifier = "RestaurantCell"
     }
 
@@ -23,8 +24,8 @@ class FastFoodViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 80))
-        tableView.contentInset = UIEdgeInsets(top: -80, left: 0, bottom: 0, right: 0)
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: Constants.tableViewHeaderHeight))
+        tableView.contentInset = UIEdgeInsets(top: -Constants.tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
         
         searchBar.delegate = self
         
@@ -77,7 +78,7 @@ extension FastFoodViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
+        return Constants.tableViewHeaderHeight
     }
 }
 
