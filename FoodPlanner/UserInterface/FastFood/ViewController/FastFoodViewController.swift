@@ -92,10 +92,8 @@ extension FastFoodViewController: UISearchBarDelegate {
         
         viewModel.getFastFood(withQuery: text).asObservable()
             .observeOn(MainScheduler())
-            .debounce(.milliseconds(400), scheduler: MainScheduler())
+            .debounce(.milliseconds(800), scheduler: MainScheduler())
             .subscribe(onNext: { [weak self] fastFoods in
-                self?.viewModel.fastFoods = []
-                self?.tableView.reloadData()
                 self?.viewModel.fastFoods = fastFoods
                 self?.tableView.reloadData()
             })

@@ -4,9 +4,10 @@ class FastFoodViewModel {
     
     typealias service = FastFoodService
     
-    let bag = DisposeBag()
+    private let bag = DisposeBag()
     var fastFoods: [FastFoodModel]? {
         didSet {
+            removeCategories()
             setCategories()
         }
     }
@@ -16,14 +17,17 @@ class FastFoodViewModel {
         return service().getFastFood(with: query, numberOfItems: number)
     }
     
+    private func removeCategories() {
+        restaurants = []
+    }
+    
     private func setCategories() {
         guard let foods = fastFoods else { return }
-        let restaurantArray = Set(foods.map { $0.restaurantChain! })
+        let restaurantSet = Set(foods.map { $0.restaurantChain! })
         
-        restaurantArray.forEach { currentRestaurant in
-            var restaurant: Restaurant = Restaurant(name: "", foods: [])
-            restaurant.name = currentRestaurant
-            restaurant.foods = foods.filter { $0.restaurantChain! == currentRestaurant && $0.imageData != nil }
+        restaurantSet.forEach { currentRestaurant in
+            let foods = foods.filter { $0.restaurantChain! == currentRestaurant && $0.imageData != nil }
+            let restaurant = Restaurant(name: currentRestaurant, foods: foods)
             self.restaurants.append(restaurant)
         }
         restaurants.sort(by: { $0.foods.count > $1.foods.count })
