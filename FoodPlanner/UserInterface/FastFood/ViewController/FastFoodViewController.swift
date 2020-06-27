@@ -1,3 +1,4 @@
+import NVActivityIndicatorView
 import RxSwift
 import UIKit
 
@@ -13,7 +14,7 @@ class FastFoodViewController: UIViewController {
             tableView.backgroundColor = UIColor.clear
         }
     }
-    
+    var activityIndicator: NVActivityIndicatorView!
     let bag = DisposeBag()
     let viewModel = FastFoodViewModel()
     
@@ -27,13 +28,30 @@ class FastFoodViewController: UIViewController {
         
         searchBar.delegate = self
         
+        setupActivityIndicator()
+        
         viewModel.getFastFood().asObservable()
             .observeOn(MainScheduler())
             .subscribe(onNext: { [weak self] fastFoods in
                 self?.viewModel.fastFoods = fastFoods
                 self?.tableView.reloadData()
+                self?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50),
+                                                    type: .circleStrokeSpin,
+                                                    color: .black,
+                                                    padding: 2.0)
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        activityIndicator.startAnimating()
     }
 }
 
@@ -86,16 +104,19 @@ extension FastFoodViewController: UISearchBarDelegate {
             return
         }
         
+        activityIndicator.startAnimating()
+        
         if text == "" {
             text = "burger"
         }
         
         viewModel.getFastFood(withQuery: text).asObservable()
             .observeOn(MainScheduler())
-            .debounce(.milliseconds(800), scheduler: MainScheduler())
+            .debounce(.milliseconds(1000), scheduler: MainScheduler())
             .subscribe(onNext: { [weak self] fastFoods in
                 self?.viewModel.fastFoods = fastFoods
                 self?.tableView.reloadData()
+                self?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
     }
