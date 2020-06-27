@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcx-K7-nLg">
-                        <rect key="frame" x="10" y="5" width="250" height="160"/>
+                        <rect key="frame" x="10" y="8" width="250" height="150"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErU-VW-jh9">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="136"/>
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="156" id="6Eh-cj-Xmk"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiV-ZD-vjs">
-                                <rect key="frame" x="7" y="136" width="236" height="24"/>
+                                <rect key="frame" x="7" y="123" width="236" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,11 +35,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="fiV-ZD-vjs" secondAttribute="bottom" id="8LU-Qf-lFR"/>
+                            <constraint firstAttribute="bottom" secondItem="fiV-ZD-vjs" secondAttribute="bottom" constant="3" id="8LU-Qf-lFR"/>
                             <constraint firstItem="ErU-VW-jh9" firstAttribute="top" secondItem="lcx-K7-nLg" secondAttribute="top" id="Bqw-yW-qCU"/>
                             <constraint firstItem="fiV-ZD-vjs" firstAttribute="leading" secondItem="lcx-K7-nLg" secondAttribute="leading" constant="7" id="PGn-vG-Nzg"/>
                             <constraint firstAttribute="trailing" secondItem="ErU-VW-jh9" secondAttribute="trailing" id="Xbu-Xv-lwn"/>
-                            <constraint firstItem="fiV-ZD-vjs" firstAttribute="top" secondItem="ErU-VW-jh9" secondAttribute="bottom" id="bCl-lj-Wbv"/>
+                            <constraint firstItem="fiV-ZD-vjs" firstAttribute="top" secondItem="ErU-VW-jh9" secondAttribute="bottom" constant="3" id="bCl-lj-Wbv"/>
                             <constraint firstAttribute="trailing" secondItem="fiV-ZD-vjs" secondAttribute="trailing" constant="7" id="cUB-p7-a0r"/>
                             <constraint firstItem="ErU-VW-jh9" firstAttribute="leading" secondItem="lcx-K7-nLg" secondAttribute="leading" id="rGj-Jy-gcH"/>
                         </constraints>
@@ -48,9 +48,9 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="lcx-K7-nLg" secondAttribute="trailing" constant="10" id="IPk-Kv-OjS"/>
-                <constraint firstItem="lcx-K7-nLg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Me9-Bw-sNx"/>
+                <constraint firstItem="lcx-K7-nLg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Me9-Bw-sNx"/>
                 <constraint firstItem="lcx-K7-nLg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="VWr-BR-1ZF"/>
-                <constraint firstAttribute="bottom" secondItem="lcx-K7-nLg" secondAttribute="bottom" constant="5" id="Z2l-Uy-z7t"/>
+                <constraint firstAttribute="bottom" secondItem="lcx-K7-nLg" secondAttribute="bottom" constant="12" id="Z2l-Uy-z7t"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="286" height="180"/>

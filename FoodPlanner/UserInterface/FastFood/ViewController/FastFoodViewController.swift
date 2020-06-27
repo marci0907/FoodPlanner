@@ -28,6 +28,7 @@ class FastFoodViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: -Constants.tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
         
         searchBar.delegate = self
+        searchBar.searchTextField.leftView?.tintColor = .black
         
         setupActivityIndicator()
         setupTapGestureRecogniser()
@@ -71,10 +72,10 @@ extension FastFoodViewController: UITableViewDelegate {
         let imageData = viewModel.restaurants[indexPath.section].foods[indexPath.row].imageData!
         let image = UIImage(data: imageData)
         
-        let maximumImageSize = CGFloat(156)
+        let maximumImageSize = CGFloat(164)
         let currentImageSize = image!.size.height
 
-        return currentImageSize > maximumImageSize ? maximumImageSize + 34 : currentImageSize + 34
+        return currentImageSize > maximumImageSize ? maximumImageSize + 45 : currentImageSize + 45
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
