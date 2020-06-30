@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cBR-99-i2E">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Fast Food Detail View Controller-->
+        <scene sceneID="xAi-x4-JkY">
+            <objects>
+                <viewController id="cBR-99-i2E" customClass="FastFoodDetailViewController" customModule="FoodPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Asq-Hx-MOg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A75-zE-7vJ">
+                                <rect key="frame" x="40" y="144" width="334" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WKH-so-jiK" firstAttribute="trailing" secondItem="A75-zE-7vJ" secondAttribute="trailing" constant="40" id="8SP-ct-EgF"/>
+                            <constraint firstItem="WKH-so-jiK" firstAttribute="bottom" secondItem="A75-zE-7vJ" secondAttribute="bottom" constant="100" id="Rg6-IQ-zhj"/>
+                            <constraint firstItem="A75-zE-7vJ" firstAttribute="top" secondItem="WKH-so-jiK" secondAttribute="top" constant="100" id="SNh-96-Ko1"/>
+                            <constraint firstItem="A75-zE-7vJ" firstAttribute="leading" secondItem="WKH-so-jiK" secondAttribute="leading" constant="40" id="Utf-QJ-tz6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WKH-so-jiK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yld-eB-8RN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="117"/>
+        </scene>
+    </scenes>
+</document>
