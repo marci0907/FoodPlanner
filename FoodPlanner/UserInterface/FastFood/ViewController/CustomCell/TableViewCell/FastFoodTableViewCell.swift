@@ -4,7 +4,9 @@ class FastFoodTableViewCell: UITableViewCell {
     
     private enum Constants {
         static let collectionViewCellNibName = "FastFoodCollectionViewCell"
+        static let collectionViewCellPadding: CGFloat = 20.0
         static let collectionViewCellReuseIdentifier = "FastFoodCell"
+        static let minimumCellWidth: CGFloat = 200.0
     }
 
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -24,8 +26,7 @@ extension FastFoodTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let currentImage = UIImage(data: cellViewModel.foods[indexPath.row].imageData!)!
         
-        let minimumWidth = CGFloat(200.0)
-        let correctedWidth = currentImage.size.width + 20 > minimumWidth ? currentImage.size.width + 20 : minimumWidth
+        let correctedWidth = currentImage.size.width + Constants.collectionViewCellPadding > Constants.minimumCellWidth ? currentImage.size.width + Constants.collectionViewCellPadding : Constants.minimumCellWidth
         
         return CGSize(width: correctedWidth, height: self.contentView.frame.size.height)
     }
