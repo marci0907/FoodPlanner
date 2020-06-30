@@ -23,7 +23,7 @@ class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegat
     
     @objc func longPressed(recognizer: UILongPressGestureRecognizer) {
         switch recognizer.state {
-        case .ended:
+        case .ended, .cancelled:
             self.dismiss(animated: true, completion: completionHandlerAfterDismiss)
         default:
             break
