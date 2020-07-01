@@ -74,7 +74,11 @@ class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegat
         
         let chartData = PieChartData(dataSet: chartDataSet)
         pieChart.data = chartData
-        pieChart.centerText = "\(data.nutrition.calories) kcal"
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let centerText = NSAttributedString(string: "\(data.nutrition.calories) kcal", attributes: attributes)
+        pieChart.centerAttributedText = centerText
+        
         pieChart.animate(xAxisDuration: 0.4, easingOption: .easeInQuad)
         
     }
