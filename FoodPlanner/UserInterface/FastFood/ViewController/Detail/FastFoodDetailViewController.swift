@@ -3,6 +3,7 @@ import UIKit
 
 class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var fastFoodImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -15,11 +16,13 @@ class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegat
         super.viewDidLoad()
 
         setLongPressGesture()
+        updateUI()
         
         viewModel.getDetailsForSelectedFood().asObservable()
             .observeOn(MainScheduler())
             .subscribe(onNext: { [unowned self] fastFoodModel in
                 self.fastFoodImage.image = UIImage(data: self.viewModel.selectedFood.imageData!)
+                self.titleLabel.text = fastFoodModel.title
             })
             .disposed(by: bag)
     }
@@ -29,6 +32,14 @@ class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegat
         
         self.view.removeGestureRecognizer(longPressGesture)
         longPressGesture.delegate = nil
+    }
+    
+    private func updateUI() {
+        containerView.layer.cornerRadius = 10.0
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.7
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        containerView.layer.shadowRadius = 5
     }
     
     private func setLongPressGesture() {

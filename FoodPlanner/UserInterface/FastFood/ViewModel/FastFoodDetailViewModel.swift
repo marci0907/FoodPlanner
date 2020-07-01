@@ -3,7 +3,7 @@ import RxSwift
 
 final class FastFoodDetailViewModel {
     
-    typealias service = FastFoodDetailService
+    private typealias service = FastFoodDetailService
     
     var selectedFood: FastFoodModel
     
