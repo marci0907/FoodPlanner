@@ -5,6 +5,7 @@ enum EndPoint {
     case mealImage(for: Meal)
     case mealDetail(for: Meal)
     case fastFood(withQuery: String, numberOfItems: Int)
+    case fastFoodDetail(for: FastFoodModel)
     
     private var url: String {
         let base = "https://api.spoonacular.com"
@@ -19,6 +20,8 @@ enum EndPoint {
             return base + "/recipes/\(meal.id)/information" + apikey + "&includeNutrition=true"
         case .fastFood(let query, let number):
             return base + "/food/menuItems/search" + apikey + "&query=\(query)&number=\(number)"
+        case .fastFoodDetail(let fastFood):
+            return base + "/food/menuItems/\(fastFood.id!)" + apikey
         }
     }
     
@@ -32,6 +35,8 @@ enum EndPoint {
             return URLRequest(url: URL(string: EndPoint.mealDetail(for: meal).url)!)
         case .fastFood(let query, let number):
             return URLRequest(url: URL(string: EndPoint.fastFood(withQuery: query, numberOfItems: number).url)!)
+        case .fastFoodDetail(let fastFood):
+            return URLRequest(url: URL(string: EndPoint.fastFoodDetail(for: fastFood).url)!)
         }
     }
 }

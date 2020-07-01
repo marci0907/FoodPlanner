@@ -11,6 +11,12 @@ class FastFoodCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDeleg
     @IBOutlet weak var view: UIView!
     
     var longPressGesture: UILongPressGestureRecognizer!
+    var cellViewModel: FastFoodModel! {
+        didSet {
+            configureCell(with: cellViewModel.imageData!)
+            fastFoodLabel.text = cellViewModel!.title
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +46,7 @@ class FastFoodCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDeleg
                 
                 detailVC.addRecognizer(recognizer: recognizer)
                 detailVC.completionHandlerAfterDismiss = setLongPressRecognizer
+                detailVC.viewModel = FastFoodDetailViewModel(selectedFood: cellViewModel)
                 
                 self.window?.rootViewController?.present(detailVC, animated: true, completion: removeRecognizer)
             default:

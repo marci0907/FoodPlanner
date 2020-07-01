@@ -19,6 +19,9 @@
 		35633DE12483F4DF0053F5BA /* MealPlannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35633DE02483F4DF0053F5BA /* MealPlannerModel.swift */; };
 		356481DE24ABCD9D00AD7212 /* FastFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356481DD24ABCD9D00AD7212 /* FastFoodDetailViewController.swift */; };
 		356481E124ABD28B00AD7212 /* FastFoodDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356481E024ABD28B00AD7212 /* FastFoodDetailViewController.storyboard */; };
+		356481E524AD14B900AD7212 /* FastFoodDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356481E424AD14B900AD7212 /* FastFoodDetailService.swift */; };
+		356481E724AD14CB00AD7212 /* FastFoodDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356481E624AD14CB00AD7212 /* FastFoodDetailModel.swift */; };
+		356481E924AD1ABC00AD7212 /* FastFoodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356481E824AD1ABC00AD7212 /* FastFoodDetailViewModel.swift */; };
 		358C6FCD2484ECEC0029935A /* MealPlannerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C6FCC2484ECEC0029935A /* MealPlannerDetailViewController.swift */; };
 		358C6FCF2484ECF60029935A /* MealPlannerDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358C6FCE2484ECF60029935A /* MealPlannerDetailViewController.storyboard */; };
 		358C6FD12484EFCA0029935A /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C6FD02484EFCA0029935A /* MealDetailViewModel.swift */; };
@@ -55,6 +58,9 @@
 		35633DE02483F4DF0053F5BA /* MealPlannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerModel.swift; sourceTree = "<group>"; };
 		356481DD24ABCD9D00AD7212 /* FastFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodDetailViewController.swift; sourceTree = "<group>"; };
 		356481E024ABD28B00AD7212 /* FastFoodDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FastFoodDetailViewController.storyboard; sourceTree = "<group>"; };
+		356481E424AD14B900AD7212 /* FastFoodDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodDetailService.swift; sourceTree = "<group>"; };
+		356481E624AD14CB00AD7212 /* FastFoodDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodDetailModel.swift; sourceTree = "<group>"; };
+		356481E824AD1ABC00AD7212 /* FastFoodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodDetailViewModel.swift; sourceTree = "<group>"; };
 		358C6FCC2484ECEC0029935A /* MealPlannerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerDetailViewController.swift; sourceTree = "<group>"; };
 		358C6FCE2484ECF60029935A /* MealPlannerDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealPlannerDetailViewController.storyboard; sourceTree = "<group>"; };
 		358C6FD02484EFCA0029935A /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		35633DDB2483F3530053F5BA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				356481E224AD14A000AD7212 /* FastFoodDetails */,
 				35CD3E70249A7BE7008910E0 /* FastFood */,
 				35BE7483248810B500EA0EE6 /* MealDetail */,
 				35633DDC2483F37A0053F5BA /* MealPlanner */,
@@ -183,6 +190,23 @@
 				35633DD52483EA790053F5BA /* FastFoodViewController.storyboard */,
 			);
 			path = FastFood;
+			sourceTree = "<group>";
+		};
+		356481E224AD14A000AD7212 /* FastFoodDetails */ = {
+			isa = PBXGroup;
+			children = (
+				356481E324AD14A700AD7212 /* Model */,
+				356481E424AD14B900AD7212 /* FastFoodDetailService.swift */,
+			);
+			path = FastFoodDetails;
+			sourceTree = "<group>";
+		};
+		356481E324AD14A700AD7212 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				356481E624AD14CB00AD7212 /* FastFoodDetailModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		358C6FC92484ECA70029935A /* ViewControllers */ = {
@@ -286,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				35CD3E78249A8221008910E0 /* FastFoodViewModel.swift */,
+				356481E824AD1ABC00AD7212 /* FastFoodDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -503,7 +528,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356481E924AD1ABC00AD7212 /* FastFoodDetailViewModel.swift in Sources */,
 				35CB24022484017E00A9BA12 /* ApiKey.swift in Sources */,
+				356481E524AD14B900AD7212 /* FastFoodDetailService.swift in Sources */,
 				35BE7488248810DE00EA0EE6 /* MealDetailModel.swift in Sources */,
 				35633DD22483EA5D0053F5BA /* MealPlannerViewController.swift in Sources */,
 				35CB24002483FDD400A9BA12 /* MealPlannerViewModel.swift in Sources */,
@@ -524,6 +551,7 @@
 				35BE7485248810CA00EA0EE6 /* MealDetailService.swift in Sources */,
 				35CD3E79249A8221008910E0 /* FastFoodViewModel.swift in Sources */,
 				3558E2ED248BC2BA001A12C5 /* DirectionCell.swift in Sources */,
+				356481E724AD14CB00AD7212 /* FastFoodDetailModel.swift in Sources */,
 				35CD3E73249A7C1D008910E0 /* FastFoodService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
