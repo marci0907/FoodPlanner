@@ -10,5 +10,6 @@ target 'FoodPlanner' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'NVActivityIndicatorView'
+  pod 'Charts'
 
 end
