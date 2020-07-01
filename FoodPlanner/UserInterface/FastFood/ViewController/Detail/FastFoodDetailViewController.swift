@@ -70,6 +70,7 @@ class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegat
         ]
         pieChart.legend.setCustom(entries: legendEntries)
         pieChart.legend.horizontalAlignment = .center
+        pieChart.legend.textColor = .black
         
         let chartData = PieChartData(dataSet: chartDataSet)
         pieChart.data = chartData
