@@ -15,6 +15,7 @@ class FastFoodViewController: UIViewController {
             tableView.backgroundColor = UIColor.clear
         }
     }
+    
     var activityIndicator: NVActivityIndicatorView!
     let bag = DisposeBag()
     let viewModel = FastFoodViewModel()
@@ -27,13 +28,23 @@ class FastFoodViewController: UIViewController {
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: Constants.tableViewHeaderHeight))
         tableView.contentInset = UIEdgeInsets(top: -Constants.tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
         
-        searchBar.delegate = self
         searchBar.searchTextField.leftView?.tintColor = .black
         
         setupActivityIndicator()
         setupTapGestureRecogniser()
         
-        viewModel.getFastFood().asObservable()
+        searchBar.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .debounce(.milliseconds(900), scheduler: MainScheduler())
+            .map { text -> String in
+                let text = text.isEmpty ? "burger" : text
+                return text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            }
+            .flatMap { text -> Observable<[FastFoodModel]> in
+                self.activityIndicator.startAnimating()
+                return self.viewModel.getFastFood(withQuery: text, numberOfItems: 40).asObservable().catchErrorJustReturn([])
+            }
             .observeOn(MainScheduler())
             .subscribe(onNext: { [weak self] fastFoods in
                 self?.viewModel.fastFoods = fastFoods
@@ -107,29 +118,5 @@ extension FastFoodViewController: UITableViewDataSource {
         cell.cellViewModel = viewModel.restaurants[indexPath.section]
         cell.collectionView.reloadData()
         return cell
-    }
-}
-
-extension FastFoodViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard var text = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            return
-        }
-        
-        activityIndicator.startAnimating()
-        
-        if text == "" {
-            text = "burger"
-        }
-        
-        viewModel.getFastFood(withQuery: text).asObservable()
-            .observeOn(MainScheduler())
-            .debounce(.milliseconds(1000), scheduler: MainScheduler())
-            .subscribe(onNext: { [weak self] fastFoods in
-                self?.viewModel.fastFoods = fastFoods
-                self?.tableView.reloadData()
-                self?.activityIndicator.stopAnimating()
-            })
-            .disposed(by: bag)
     }
 }
