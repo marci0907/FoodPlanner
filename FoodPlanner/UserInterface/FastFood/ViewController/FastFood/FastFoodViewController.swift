@@ -52,6 +52,12 @@ class FastFoodViewController: UIViewController {
                 self?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
+        
+        tableView.rx.didScroll
+            .subscribe(onNext: { _ in
+                self.searchBar.resignFirstResponder()
+            })
+            .disposed(by: bag)
     }
     
     private func setupTapGestureRecogniser() {
