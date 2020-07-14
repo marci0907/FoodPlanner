@@ -46,31 +46,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    func setupTabBarController() {
+    private func setupTabBarController() {
         
         let fastFoodStoryboard = UIStoryboard(name: "FastFoodViewController", bundle: .main)
         let fastFoodVC = fastFoodStoryboard.instantiateInitialViewController()!
         let fastFoodNC = UINavigationController(rootViewController: fastFoodVC)
-        let fastFoodTabItem = UITabBarItem(title: "Fast Foods", image: nil, tag: 1)
+        let fastFoodTabItem = UITabBarItem(title: "Fast Foods", image: UIImage(named: "fastFoodIcon"), tag: 1)
         fastFoodNC.tabBarItem = fastFoodTabItem
             
         let mealPlannerStoryboard = UIStoryboard(name: "MealPlannerViewController", bundle: .main)
         let mealPlannerVC = mealPlannerStoryboard.instantiateInitialViewController()!
         let mealPlannerNC = UINavigationController(rootViewController: mealPlannerVC)
-        let mealPlannerTabItem = UITabBarItem(title: "Meal Planner", image: nil, tag: 2)
+        let mealPlannerTabItem = UITabBarItem(title: "Meal Planner", image: UIImage(named: "mealPlannerIcon"), tag: 2)
         mealPlannerNC.tabBarItem = mealPlannerTabItem
         mealPlannerNC.isNavigationBarHidden = true
 
-        let recipesStoryboard = UIStoryboard(name: "RecipesViewController", bundle: .main)
-        let recipesVC = recipesStoryboard.instantiateInitialViewController()!
-        let recipesNC = UINavigationController(rootViewController: recipesVC)
-        let recipesTabItem = UITabBarItem(title: "Recipes", image: nil, tag: 0)
-        recipesNC.tabBarItem = recipesTabItem
-
-        tabBarController.viewControllers = [recipesNC, fastFoodNC, mealPlannerNC]
+        tabBarController.viewControllers = [fastFoodNC, mealPlannerNC]
         
     }
-
-
 }
-
