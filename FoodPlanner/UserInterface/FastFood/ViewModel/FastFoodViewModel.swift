@@ -27,6 +27,7 @@ class FastFoodViewModel {
         
         restaurantSet.forEach { currentRestaurant in
             let foods = foods.filter { $0.restaurantChain! == currentRestaurant && $0.imageData != nil }
+            guard foods.count > 0 else { return }
             let restaurant = Restaurant(name: currentRestaurant, foods: foods)
             self.restaurants.append(restaurant)
         }
