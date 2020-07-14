@@ -9,7 +9,7 @@ struct FastFoodDetailModel: Codable {
 
 struct FastFoodDetailNutrition: Codable {
     var caloricBreakdown: CaloricBreakdown
-    var calories: Int
+    var calories: Double
     var fat: String
     var protein: String
     var carbs: String

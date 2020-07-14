@@ -25,7 +25,7 @@ class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegat
             .subscribe(onNext: { [unowned self] fastFoodModel in
                 self.fastFoodImage.image = UIImage(data: self.viewModel.selectedFood.imageData!)
                 self.titleLabel.text = fastFoodModel.title
-                self.setupPieChart(withData: fastFoodModel)
+                self.viewModel.setup(self.pieChart, with: fastFoodModel)
             })
             .disposed(by: bag)
     }
@@ -35,52 +35,6 @@ class FastFoodDetailViewController: UIViewController, UIGestureRecognizerDelegat
         
         self.view.removeGestureRecognizer(longPressGesture)
         longPressGesture.delegate = nil
-    }
-    
-    // FIXME: move this code to viewmodel
-    
-    private func setupPieChart(withData data: FastFoodDetailModel) {
-        let carbsAmount = Double(data.nutrition.carbs.dropLast())!
-        let proteinAmount = Double(data.nutrition.protein.dropLast())!
-        let fatAmount = Double(data.nutrition.fat.dropLast())!
-        let sumOfNutrients = carbsAmount + proteinAmount + fatAmount
-        let chartDataEntries = [
-            PieChartDataEntry(value: carbsAmount / sumOfNutrients,
-                              label: "\(data.nutrition.carbs)"),
-            PieChartDataEntry(value: proteinAmount / sumOfNutrients,
-                              label: "\(data.nutrition.protein)"),
-            PieChartDataEntry(value: fatAmount / sumOfNutrients,
-                              label: "\(data.nutrition.fat)"),
-        ]
-        
-        let chartDataSet = PieChartDataSet(entries: chartDataEntries)
-        let blue = UIColor(red: 71/255, green: 98/255, blue: 168/255, alpha: 1)
-        let green = UIColor(red: 159/255, green: 198/255, blue: 100/255, alpha: 1)
-        let red = UIColor(red: 211/255, green: 80/255, blue: 75/255, alpha: 1)
-        chartDataSet.colors = [blue, green, red]
-        chartDataSet.automaticallyDisableSliceSpacing = true
-        chartDataSet.sliceSpace = 5
-        chartDataSet.yValuePosition = .outsideSlice
-        chartDataSet.valueLineColor = .clear
-        
-        let legendEntries = [
-            LegendEntry(label: "Carbs", form: .circle, formSize: CGFloat(8), formLineWidth: CGFloat(2), formLineDashPhase: CGFloat(2), formLineDashLengths: nil, formColor: blue),
-            LegendEntry(label: "Protein", form: .circle, formSize: CGFloat(8), formLineWidth: CGFloat(2), formLineDashPhase: CGFloat(2), formLineDashLengths: nil, formColor: green),
-            LegendEntry(label: "Fat", form: .circle, formSize: CGFloat(8), formLineWidth: CGFloat(2), formLineDashPhase: CGFloat(2), formLineDashLengths: nil, formColor: red)
-        ]
-        pieChart.legend.setCustom(entries: legendEntries)
-        pieChart.legend.horizontalAlignment = .center
-        pieChart.legend.textColor = .black
-        
-        let chartData = PieChartData(dataSet: chartDataSet)
-        pieChart.data = chartData
-        
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        let centerText = NSAttributedString(string: "\(data.nutrition.calories) kcal", attributes: attributes)
-        pieChart.centerAttributedText = centerText
-        
-        pieChart.animate(xAxisDuration: 0.4, easingOption: .easeInQuad)
-        
     }
     
     private func updateUI() {
