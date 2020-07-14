@@ -16,9 +16,11 @@ class FastFoodViewController: UIViewController {
         }
     }
     
-    var activityIndicator: NVActivityIndicatorView!
-    let bag = DisposeBag()
-    let viewModel = FastFoodViewModel()
+    private var collectionViewOffsets = [IndexPath: CGFloat]()
+    
+    private var activityIndicator: NVActivityIndicatorView!
+    private let bag = DisposeBag()
+    private let viewModel = FastFoodViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +45,14 @@ class FastFoodViewController: UIViewController {
             }
             .flatMap { text -> Observable<[FastFoodModel]> in
                 self.activityIndicator.startAnimating()
-                return self.viewModel.getFastFood(withQuery: text, numberOfItems: 40).asObservable().catchErrorJustReturn([])
+                return self.viewModel.getFastFood(withQuery: text, numberOfItems: 40).asObservable()
+                    .catchErrorJustReturn([])
             }
             .observeOn(MainScheduler())
             .subscribe(onNext: { [weak self] fastFoods in
                 self?.viewModel.fastFoods = fastFoods
                 self?.tableView.reloadData()
+                self?.collectionViewOffsets = [:]
                 self?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
@@ -92,7 +96,7 @@ extension FastFoodViewController: UITableViewDelegate {
         let maximumImageSize = CGFloat(164)
         let currentImageSize = image!.size.height
 
-        return currentImageSize > maximumImageSize ? maximumImageSize + 45 : currentImageSize + 45
+        return currentImageSize > maximumImageSize ? maximumImageSize + 50 : currentImageSize + 50
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -107,6 +111,16 @@ extension FastFoodViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.tableViewHeaderHeight
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? FastFoodTableViewCell else { return }
+        cell.collectionViewCellOffset = collectionViewOffsets[indexPath] ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? FastFoodTableViewCell else { return }
+        collectionViewOffsets[indexPath] = cell.collectionViewCellOffset
     }
 }
 

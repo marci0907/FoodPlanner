@@ -10,13 +10,13 @@ class FastFoodCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDeleg
     @IBOutlet weak var fastFoodLabel: UILabel!
     @IBOutlet weak var view: UIView!
     
-    var longPressGesture: UILongPressGestureRecognizer!
     var cellViewModel: FastFoodModel! {
         didSet {
             configureCell(with: cellViewModel.imageData!)
             fastFoodLabel.text = cellViewModel!.title
         }
     }
+    var longPressGesture: UILongPressGestureRecognizer!
     
     override func awakeFromNib() {
         super.awakeFromNib()

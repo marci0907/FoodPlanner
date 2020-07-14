@@ -6,6 +6,8 @@ class FastFoodTableViewCell: UITableViewCell {
         static let collectionViewCellNibName = "FastFoodCollectionViewCell"
         static let collectionViewCellPadding: CGFloat = 20.0
         static let collectionViewCellReuseIdentifier = "FastFoodCell"
+        static let labelHeight: CGFloat = 24.0
+        static let minimumCellHeight: CGFloat = 100.0
         static let minimumCellWidth: CGFloat = 200.0
     }
 
@@ -16,6 +18,14 @@ class FastFoodTableViewCell: UITableViewCell {
     }
 
     var cellViewModel: Restaurant!
+    var collectionViewCellOffset: CGFloat {
+        set {
+            collectionView.contentOffset.x = newValue
+        }
+        get {
+            return collectionView.contentOffset.x
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +37,9 @@ extension FastFoodTableViewCell: UICollectionViewDelegateFlowLayout {
         let currentImage = UIImage(data: cellViewModel.foods[indexPath.row].imageData!)!
         
         let correctedWidth = currentImage.size.width + Constants.collectionViewCellPadding > Constants.minimumCellWidth ? currentImage.size.width + Constants.collectionViewCellPadding : Constants.minimumCellWidth
+        let correctedHeight = self.contentView.frame.size.height > Constants.minimumCellHeight ? self.contentView.frame.size.height : Constants.minimumCellHeight
         
-        return CGSize(width: correctedWidth, height: self.contentView.frame.size.height)
+        return CGSize(width: correctedWidth, height: correctedHeight)
     }
 }
 
