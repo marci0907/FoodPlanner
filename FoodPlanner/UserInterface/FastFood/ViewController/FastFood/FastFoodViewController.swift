@@ -26,44 +26,10 @@ class FastFoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: Constants.tableViewHeaderHeight))
-        tableView.contentInset = UIEdgeInsets(top: -Constants.tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
-        
-        searchBar.searchTextField.leftView?.tintColor = .black
-        searchBar.placeholder = "Search for fast foods"
-        
         setupActivityIndicator()
         setupTapGestureRecogniser()
-        
-        searchBar.rx.text
-            .orEmpty
-            .distinctUntilChanged()
-            .debounce(.milliseconds(900), scheduler: MainScheduler())
-            .map { text -> String in
-                let text = text.isEmpty ? "burger" : text
-                return text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-            }
-            .flatMap { text -> Observable<[FastFoodModel]> in
-                self.activityIndicator.startAnimating()
-                return self.viewModel.getFastFood(withQuery: text, numberOfItems: 40).asObservable()
-                    .catchErrorJustReturn([])
-            }
-            .observeOn(MainScheduler())
-            .subscribe(onNext: { [weak self] fastFoods in
-                self?.viewModel.fastFoods = fastFoods
-                self?.tableView.reloadData()
-                self?.collectionViewOffsets = [:]
-                self?.activityIndicator.stopAnimating()
-            })
-            .disposed(by: bag)
-        
-        tableView.rx.didScroll
-            .subscribe(onNext: { _ in
-                self.searchBar.resignFirstResponder()
-            })
-            .disposed(by: bag)
+        setupSearchBar()
+        setupTableView()
     }
     
     private func setupTapGestureRecogniser() {
@@ -87,6 +53,78 @@ class FastFoodViewController: UIViewController {
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         activityIndicator.startAnimating()
+    }
+    
+    private func setupSearchBar() {
+        searchBar.searchTextField.leftView?.tintColor = .black
+        searchBar.placeholder = "Search for fast foods"
+
+        searchBar.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .debounce(.milliseconds(900), scheduler: MainScheduler())
+            .map { text -> String in
+                let text = text.isEmpty ? "burger" : text
+                return text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            }
+            .flatMap { text -> Observable<[FastFoodModel]> in
+                self.activityIndicator.startAnimating()
+                return self.viewModel.getFastFood(withQuery: text, numberOfItems: 40).asObservable()
+                    .catchErrorJustReturn([])
+            }
+            .observeOn(MainScheduler())
+            .subscribe(onNext: { [weak self] fastFoods in
+                self?.viewModel.fastFoods = fastFoods
+                self?.tableView.reloadData()
+                self?.collectionViewOffsets = [:]
+                self?.activityIndicator.stopAnimating()
+            })
+            .disposed(by: bag)
+    }
+    
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: Constants.tableViewHeaderHeight))
+        tableView.contentInset = UIEdgeInsets(top: -Constants.tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
+
+        tableView.rx.didScroll
+            .subscribe(onNext: { [weak self] _ in
+                self?.searchBar.resignFirstResponder()
+                self?.updateSearchBarHeight()
+            })
+            .disposed(by: bag)
+        
+        tableView.rx.willDisplayCell
+            .subscribe(onNext: { [weak self] event in
+                guard let cell = event.cell as? FastFoodTableViewCell else { return }
+                cell.collectionViewCellOffset = self?.collectionViewOffsets[event.indexPath] ?? 0
+            })
+            .disposed(by: bag)
+        
+        tableView.rx.didEndDisplayingCell
+            .subscribe(onNext: { [weak self] event in
+                guard let cell = event.cell as? FastFoodTableViewCell else { return }
+                self?.collectionViewOffsets[event.indexPath] = cell.collectionViewCellOffset
+            })
+            .disposed(by: bag)
+    }
+    
+    private func updateSearchBarHeight() {
+        let offset = tableView.contentOffset.y
+        let searchBarHeight: CGFloat = 44.0
+        if offset < Constants.tableViewHeaderHeight && searchBarHeightConstraint.constant < searchBarHeight {
+            searchBarHeightConstraint.constant += 80 - offset
+            searchBarHeightConstraint.constant = searchBarHeightConstraint.constant > searchBarHeight ? searchBarHeight : searchBarHeightConstraint.constant
+            tableView.contentOffset.y = Constants.tableViewHeaderHeight
+            searchBar.isUserInteractionEnabled = false
+        } else if offset > Constants.tableViewHeaderHeight && searchBarHeightConstraint.constant > 0 {
+            searchBarHeightConstraint.constant -= offset - 80
+            tableView.contentOffset.y = Constants.tableViewHeaderHeight
+            searchBar.isUserInteractionEnabled = false
+        } else {
+            searchBar.isUserInteractionEnabled = true
+        }
     }
 }
 
@@ -113,33 +151,6 @@ extension FastFoodViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.tableViewHeaderHeight
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? FastFoodTableViewCell else { return }
-        cell.collectionViewCellOffset = collectionViewOffsets[indexPath] ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? FastFoodTableViewCell else { return }
-        collectionViewOffsets[indexPath] = cell.collectionViewCellOffset
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = tableView.contentOffset.y
-        let searchBarHeight: CGFloat = 44.0
-        if offset < Constants.tableViewHeaderHeight && searchBarHeightConstraint.constant < searchBarHeight {
-            searchBarHeightConstraint.constant += 80 - offset
-            searchBarHeightConstraint.constant = searchBarHeightConstraint.constant > searchBarHeight ? searchBarHeight : searchBarHeightConstraint.constant
-            tableView.contentOffset.y = Constants.tableViewHeaderHeight
-            searchBar.isUserInteractionEnabled = false
-        } else if offset > Constants.tableViewHeaderHeight && searchBarHeightConstraint.constant > 0 {
-            searchBarHeightConstraint.constant -= offset - 80
-            tableView.contentOffset.y = Constants.tableViewHeaderHeight
-            searchBar.isUserInteractionEnabled = false
-        } else {
-            searchBar.isUserInteractionEnabled = true
-        }
     }
 }
 
