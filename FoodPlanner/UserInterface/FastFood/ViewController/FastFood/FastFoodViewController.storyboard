@@ -97,6 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="i5S-o0-WoL" id="j1e-cH-B38"/>
+                        <outlet property="searchBarHeightConstraint" destination="ey4-p6-o72" id="yK6-eW-aJ4"/>
                         <outlet property="tableView" destination="dAO-0J-LyT" id="Xwu-8R-mxB"/>
                     </connections>
                 </viewController>

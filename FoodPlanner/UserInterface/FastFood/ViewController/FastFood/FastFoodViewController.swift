@@ -10,6 +10,7 @@ class FastFoodViewController: UIViewController {
     }
 
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = UIColor.clear
@@ -31,6 +32,7 @@ class FastFoodViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: -Constants.tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
         
         searchBar.searchTextField.leftView?.tintColor = .black
+        searchBar.placeholder = "Search for fast foods"
         
         setupActivityIndicator()
         setupTapGestureRecogniser()
@@ -121,6 +123,23 @@ extension FastFoodViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? FastFoodTableViewCell else { return }
         collectionViewOffsets[indexPath] = cell.collectionViewCellOffset
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = tableView.contentOffset.y
+        let searchBarHeight: CGFloat = 44.0
+        if offset < Constants.tableViewHeaderHeight && searchBarHeightConstraint.constant < searchBarHeight {
+            searchBarHeightConstraint.constant += 80 - offset
+            searchBarHeightConstraint.constant = searchBarHeightConstraint.constant > searchBarHeight ? searchBarHeight : searchBarHeightConstraint.constant
+            tableView.contentOffset.y = Constants.tableViewHeaderHeight
+            searchBar.isUserInteractionEnabled = false
+        } else if offset > Constants.tableViewHeaderHeight && searchBarHeightConstraint.constant > 0 {
+            searchBarHeightConstraint.constant -= offset - 80
+            tableView.contentOffset.y = Constants.tableViewHeaderHeight
+            searchBar.isUserInteractionEnabled = false
+        } else {
+            searchBar.isUserInteractionEnabled = true
+        }
     }
 }
 
