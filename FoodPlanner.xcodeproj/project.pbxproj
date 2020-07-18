@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35090F9724C2DAD600E60E0B /* FastFoodSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35090F9624C2DAD600E60E0B /* FastFoodSettingsViewController.storyboard */; };
+		35090F9924C2DAE300E60E0B /* FastFoodSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35090F9824C2DAE300E60E0B /* FastFoodSettingsViewController.swift */; };
 		3558E2ED248BC2BA001A12C5 /* DirectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558E2EB248BC2BA001A12C5 /* DirectionCell.swift */; };
 		3558E2EE248BC2BA001A12C5 /* DirectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3558E2EC248BC2BA001A12C5 /* DirectionCell.xib */; };
 		35633DD02483EA530053F5BA /* FastFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35633DCF2483EA520053F5BA /* FastFoodViewController.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		235B073F5B3B0DBC3C3D8768 /* Pods-FoodPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPlanner.debug.xcconfig"; path = "Target Support Files/Pods-FoodPlanner/Pods-FoodPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		35090F9624C2DAD600E60E0B /* FastFoodSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FastFoodSettingsViewController.storyboard; sourceTree = "<group>"; };
+		35090F9824C2DAE300E60E0B /* FastFoodSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodSettingsViewController.swift; sourceTree = "<group>"; };
 		3558E2EB248BC2BA001A12C5 /* DirectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionCell.swift; sourceTree = "<group>"; };
 		3558E2EC248BC2BA001A12C5 /* DirectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DirectionCell.xib; sourceTree = "<group>"; };
 		35633DCF2483EA520053F5BA /* FastFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastFoodViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35090F9524C2DAB000E60E0B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				35090F9824C2DAE300E60E0B /* FastFoodSettingsViewController.swift */,
+				35090F9624C2DAD600E60E0B /* FastFoodSettingsViewController.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		35633DCA2483E8F70053F5BA /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +333,7 @@
 			children = (
 				356481DC24ABCD8A00AD7212 /* Detail */,
 				356481DF24ABCDAB00AD7212 /* FastFood */,
+				35090F9524C2DAB000E60E0B /* Settings */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -467,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35090F9724C2DAD600E60E0B /* FastFoodSettingsViewController.storyboard in Resources */,
 				35633DD62483EA790053F5BA /* FastFoodViewController.storyboard in Resources */,
 				3558E2EE248BC2BA001A12C5 /* DirectionCell.xib in Resources */,
 				35633DD82483EA820053F5BA /* MealPlannerViewController.storyboard in Resources */,
@@ -537,6 +552,7 @@
 				35633DDF2483F39C0053F5BA /* MealPlannerService.swift in Sources */,
 				35CB23FD2483F95100A9BA12 /* EndPoint.swift in Sources */,
 				35FF745624828378001FB26C /* AppDelegate.swift in Sources */,
+				35090F9924C2DAE300E60E0B /* FastFoodSettingsViewController.swift in Sources */,
 				35BE748A248A27FF00EA0EE6 /* IngredientsCell.swift in Sources */,
 				35E17222249A9FCA000B92BC /* FastFoodCollectionViewCell.swift in Sources */,
 				35E17225249C12E1000B92BC /* FastFoodTableViewCell.swift in Sources */,

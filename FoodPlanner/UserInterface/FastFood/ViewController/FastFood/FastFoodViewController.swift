@@ -26,6 +26,7 @@ class FastFoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBarButtonItem()
         setupActivityIndicator()
         setupTapGestureRecogniser()
         setupSearchBar()
@@ -39,6 +40,24 @@ class FastFoodViewController: UIViewController {
     
     @objc func searchBarResignFirstResponder() {
         searchBar.resignFirstResponder()
+    }
+    
+    private func setupBarButtonItem() {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "gearIcon"), for: .normal)
+        button.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
+        let settingsItem = UIBarButtonItem(customView: button)
+
+        navigationItem.rightBarButtonItem = settingsItem
+    }
+    
+    @objc func settingsTapped() {
+        let storyboard = UIStoryboard(name: "FastFoodSettingsViewController", bundle: .main)
+        let settingsVC = storyboard.instantiateInitialViewController()!
+        settingsVC.modalTransitionStyle = .coverVertical
+        settingsVC.modalPresentationStyle = .overFullScreen
+        settingsVC.isModalInPresentation = true
+        navigationController?.present(settingsVC, animated: true, completion: nil)
     }
     
     private func setupActivityIndicator() {
@@ -89,6 +108,7 @@ class FastFoodViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: -Constants.tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
 
         tableView.rx.didScroll
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] _ in
                 self?.searchBar.resignFirstResponder()
                 self?.updateSearchBarHeight()
@@ -128,6 +148,8 @@ class FastFoodViewController: UIViewController {
     }
 }
 
+// MARK: - Table View Delegate
+
 extension FastFoodViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let imageData = viewModel.restaurants[indexPath.section].foods[indexPath.row].imageData!
@@ -153,6 +175,8 @@ extension FastFoodViewController: UITableViewDelegate {
         return Constants.tableViewHeaderHeight
     }
 }
+
+// MARK: - Table View Datasource
 
 extension FastFoodViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

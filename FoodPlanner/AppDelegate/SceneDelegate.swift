@@ -53,6 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let fastFoodNC = UINavigationController(rootViewController: fastFoodVC)
         let fastFoodTabItem = UITabBarItem(title: "Fast Foods", image: UIImage(named: "fastFoodIcon"), tag: 1)
         fastFoodNC.tabBarItem = fastFoodTabItem
+        fastFoodNC.navigationBar.topItem?.title = "FAST FOODS"
             
         let mealPlannerStoryboard = UIStoryboard(name: "MealPlannerViewController", bundle: .main)
         let mealPlannerVC = mealPlannerStoryboard.instantiateInitialViewController()!
