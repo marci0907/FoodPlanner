@@ -5,6 +5,8 @@ class FastFoodSettingsViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var dismissingView: UIView!
+
+    var modalDidDismiss: (() -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,7 @@ class FastFoodSettingsViewController: UIViewController {
     }
 
     @objc func willDismiss() {
+        modalDidDismiss()
         self.dismiss(animated: true, completion: nil)
     }
 }

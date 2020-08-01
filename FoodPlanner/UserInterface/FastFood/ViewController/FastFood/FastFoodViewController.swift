@@ -16,15 +16,24 @@ class FastFoodViewController: UIViewController {
             tableView.backgroundColor = UIColor.clear
         }
     }
-    
+
+    private var alphaAnimation: (() -> Void)!
     private var collectionViewOffsets = [IndexPath: CGFloat]()
-    
+    private var isSettingsShown: Bool = false
+
     private var activityIndicator: NVActivityIndicatorView!
     private let bag = DisposeBag()
     private let viewModel = FastFoodViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        alphaAnimation = { [weak self] in
+            UIView.animate(withDuration: 0.3) {
+                self?.view.alpha = self?.isSettingsShown ?? true ? 1.0 : 0.3
+            }
+            self?.isSettingsShown.toggle()
+        }
         
         setupBarButtonItem()
         setupActivityIndicator()
@@ -32,7 +41,7 @@ class FastFoodViewController: UIViewController {
         setupSearchBar()
         setupTableView()
     }
-    
+
     private func setupTapGestureRecogniser() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchBarResignFirstResponder))
         view.addGestureRecognizer(tapGesture)
@@ -53,11 +62,14 @@ class FastFoodViewController: UIViewController {
     
     @objc func settingsTapped() {
         let storyboard = UIStoryboard(name: "FastFoodSettingsViewController", bundle: .main)
-        let settingsVC = storyboard.instantiateInitialViewController()!
+        guard let settingsVC = storyboard.instantiateInitialViewController() as? FastFoodSettingsViewController else { return }
+        settingsVC.modalDidDismiss = alphaAnimation
+        
         settingsVC.modalTransitionStyle = .coverVertical
         settingsVC.modalPresentationStyle = .overFullScreen
         settingsVC.isModalInPresentation = true
-        navigationController?.present(settingsVC, animated: true, completion: nil)
+        alphaAnimation()
+        navigationController?.present(settingsVC, animated: true)
     }
     
     private func setupActivityIndicator() {
