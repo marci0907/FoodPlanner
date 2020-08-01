@@ -28,9 +28,9 @@ class FastFoodCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDeleg
         fastFoodImage.layer.cornerRadius = 10.0
         view.layer.cornerRadius = 10.0
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.7
-        view.layer.shadowOffset = CGSize(width: 0, height: 1)
-        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.25
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 3
     }
     
     @objc func longPressed(recognizer: UILongPressGestureRecognizer) {
