@@ -33,53 +33,53 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="clear" catalog="system"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H44-Fv-Yx4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H44-Fv-Yx4">
                                         <rect key="frame" x="142" y="20" width="116" height="42"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7QT-X6-zc2">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7QT-X6-zc2">
                                         <rect key="frame" x="30" y="122" width="340" height="375.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRy-en-GiH" userLabel="kcal">
-                                                <rect key="frame" x="0.0" y="0.0" width="114" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Yh2-4j-xhc" customClass="CustomSlider" customModule="FoodPlanner" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="38.5" width="344" height="29.5"/>
+                                                <rect key="frame" x="-2" y="37.5" width="344" height="30.5"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max carbs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLP-6z-4YC" userLabel="carbs">
-                                                <rect key="frame" x="0.0" y="77" width="91.5" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="77" width="91.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wcw-EL-zNm" customClass="CustomSlider" customModule="FoodPlanner" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="115.5" width="344" height="29.5"/>
+                                                <rect key="frame" x="-2" y="115" width="344" height="30.5"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSb-HW-ACO" userLabel="protein">
-                                                <rect key="frame" x="0.0" y="154" width="109" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="154.5" width="109" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MfH-q9-zxd" customClass="CustomSlider" customModule="FoodPlanner" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="192.5" width="344" height="30"/>
+                                                <rect key="frame" x="-2" y="192" width="344" height="31"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1w-P0-bkN" userLabel="fat">
-                                                <rect key="frame" x="0.0" y="231.5" width="69.5" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="232" width="69.5" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-uY-IeC" customClass="CustomSlider" customModule="FoodPlanner" customModuleProvider="target">
-                                                <rect key="frame" x="-2" y="270" width="344" height="29.5"/>
+                                                <rect key="frame" x="-2" y="269.5" width="344" height="30.5"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of returned items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D5-Yv-EDX" userLabel="numberOfItems">
-                                                <rect key="frame" x="0.0" y="308.5" width="236.5" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="309" width="236.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -135,9 +135,14 @@
                         <viewLayoutGuide key="safeArea" id="nZR-wL-zzE"/>
                     </view>
                     <connections>
+                        <outlet property="carbSlider" destination="Wcw-EL-zNm" id="uG1-um-nFO"/>
                         <outlet property="closeButton" destination="SvG-2M-qae" id="BO5-Mh-EAT"/>
                         <outlet property="contentView" destination="Jgg-Wz-12c" id="EhL-e3-ndZ"/>
                         <outlet property="dismissingView" destination="hsN-hq-tCF" id="g5x-Xz-cAk"/>
+                        <outlet property="fatSlider" destination="xsc-uY-IeC" id="Vs6-Ui-Jdx"/>
+                        <outlet property="kcalSlider" destination="Yh2-4j-xhc" id="WiH-3K-cEl"/>
+                        <outlet property="numberSlider" destination="w6Z-0f-lXN" id="wok-u0-LKO"/>
+                        <outlet property="proteinSlider" destination="MfH-q9-zxd" id="PbR-8y-ebA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ch6-qM-Ae6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

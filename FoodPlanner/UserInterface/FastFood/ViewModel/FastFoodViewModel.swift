@@ -13,7 +13,7 @@ class FastFoodViewModel {
     }
     var restaurants = [Restaurant]()
     
-    func getFastFood(withQuery query: String = "burger", numberOfItems number: Int = 40) -> Single<[FastFoodModel]> {
+    func getFastFood(withQuery query: String = "burger", numberOfItems number: Int = Int(QuerySettings.maxNumberOfItems)) -> Single<[FastFoodModel]> {
         return service().getFastFood(with: query, numberOfItems: number)
     }
     
